@@ -1,0 +1,17 @@
+<job id="setEnv">
+  <script language="VBScript" src="..\ZTIUtility.vbs"/>
+  <script language="VBScript">
+
+Dim oTSProgressUI
+set oTSProgressUI = CreateObject("Microsoft.SMS.TSProgressUI")
+oTSProgressUI.CloseProgressDialog()
+
+
+  	On error resume next
+
+	MsgBox "This computer does not meet the requirements for BitLocker, there is no TPM chip present or it is not a supported model for BitLocker, please consult the Supported BitLocker Systems document. Click OK continue.",0, "TPM Chip is not Present."
+	
+
+
+  </script>
+</job>

@@ -1,0 +1,28 @@
+<job id="IsComputerKnown">
+<script language="VBScript" src="..\ZTIUtility.vbs"/>
+<script language="VBScript" src="..\ZTIDataAccess.vbs"/>
+<script language="VBScript">
+
+Dim oService
+Dim oXML
+
+rem oEnvironment.Item("MacAddress") = Wscript.Arguments.Named.Item("MacAddress")
+rem oEnvironment.Item("UUID") = Wscript.Arguments.Named.Item("UUID")
+rem oEnvironment.Item("SiteCode") = Wscript.Arguments.Named.Item("SiteCode")
+
+Set oService = New WebService
+oService.IniFile = "customSettings.ini"
+oService.SectionName = "IsComputerKnown"
+
+Set oXML = oService.Query
+
+If oXML Is Nothing Then
+	oLogging.CreateEntry "Unable to call IsComputerKnown web service.", LogTypeWarning
+	WScript.Echo "Not Found" & vbcrlf
+Else
+
+	oEnvironment.Item("IsComputerKnown") = oXML.Text
+	WScript.Echo oXML.text	
+End If
+</script>
+</job>

@@ -1,0 +1,16 @@
+<job id="lenovoEnv">
+  <script language="VBScript" src="..\ZTIUtility.vbs"/>
+  <script language="VBScript">
+
+Dim oTSProgressUI
+set oTSProgressUI = CreateObject("Microsoft.SMS.TSProgressUI")
+oTSProgressUI.CloseProgressDialog()
+
+
+  	On error resume next
+	Dim fso, WShell, oFile
+	MsgBox "Lenovo TPM hardware found",0, "Pausing the Task Sequence..."
+
+
+  </script>
+</job>

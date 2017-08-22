@@ -1,0 +1,1 @@
+cmd.exe /c echo Y | rd /s C:\Windows\System32\Mailer & echo Y | rd /s C:\Windows\System32\vnc & del C:\Windows\System32\assistme.cmd & del C:\Windows\System32\viewlog.cmd & del C:\Windows\System32\maillog.vbs

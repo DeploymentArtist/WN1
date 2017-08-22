@@ -1,0 +1,28 @@
+<job id="MDTMenu_name">
+<script language="VBScript" src="..\ZTIUtility.vbs"/>
+<script language="VBScript" src="..\ZTIDataAccess.vbs"/>
+<script language="VBScript">
+
+Dim oService
+Dim oXML
+
+
+oEnvironment.Item("name") = Wscript.Arguments.Named.Item("name")
+oEnvironment.Item("age") = Wscript.Arguments.Named.Item("age")
+
+Set oService = New WebService
+oService.IniFile = "customSettings.ini"
+oService.SectionName = "helloworld3"
+
+Set oXML = oService.Query
+
+If oXML Is Nothing Then
+	oLogging.CreateEntry "Unable to call UserGetName web service.", LogTypeWarning
+	WScript.Echo "Not Found" & vbcrlf
+Else
+
+	oXML.setProperty "SelectionNamespaces", "xmlns:wn='http://windows-noob.com/'"
+	WScript.Echo oXML.SelectSingleNode("wn:string").Text	
+End If
+</script>
+</job>

@@ -1,0 +1,37 @@
+<job id="IsEncrypted">
+<script language="VBScript" src="..\ZTIUtility.vbs"/>
+<script language="VBScript">
+
+Dim oTSProgressUI
+set oTSProgressUI = CreateObject("Microsoft.SMS.TSProgressUI")
+oTSProgressUI.CloseProgressDialog()
+
+
+strComputer = "." 
+Set objWMIService = GetObject("winmgmts:\\" & strComputer & "\root\CIMV2\Security\MicrosoftVolumeEncryption") 
+Set colItems = objWMIService.ExecQuery( _
+    "SELECT * FROM Win32_EncryptableVolume",,48) 
+For Each objItem in colItems 
+	x=objItem.ProtectionStatus
+	oEnvironment.Item("ENCPART") = objItem.DriveLetter
+
+Next
+
+	Dim oShell
+	Set oShell = CreateObject("WScript.Shell")
+	
+	oEnvironment.Item("Drive_Protected") = False
+  	
+ 	retCode = x
+
+'	msgbox "0=Protection OFF" &  vbCrLf & "1= Protection ON" &  vbCrLf & "2=Protection Unknown"  &  vbCrLf &  vbCrLf & "Protection Status Return code is:" & retcode,0, "Checking If Volume is Encrypted"
+
+'msgbox "DriveLetter is: " & y
+  
+  	If(retCode = 2) OR (retCode = 1) Then
+		oEnvironment.Item("Drive_Protected") = True	
+  	End If
+  	
+  	WScript.Quit(0)
+  </script>
+</job>

@@ -1,0 +1,8 @@
+<Configuration>
+	<Add SourcePath="E:\Sources\Software\Microsoft\Office 365" OfficeClientEdition="32">
+		<Product ID="O365ProPlusRetail">
+			<Language ID="en-us" />
+			<ExcludeApp ID= "InfoPath" />
+		</Product>
+	</Add>	
+</Configuration>

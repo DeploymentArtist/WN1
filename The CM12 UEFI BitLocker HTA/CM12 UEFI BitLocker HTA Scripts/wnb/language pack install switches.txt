@@ -1,0 +1,7 @@
+IF you want to install the language packs online then try:-
+
+lpksetup.exe /i %OSDUILanguage% /r /p C:\LangPacks\x86\%OSDUILanguage%
+
+If you want a guide to installing them Offline then try:-
+
+http://www.windows-noob.com/forums/index.php?/topic/3251-customising-windows-7-deployments-part-4/

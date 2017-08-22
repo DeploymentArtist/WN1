@@ -1,0 +1,24 @@
+<job id="setEnv">
+  <script language="VBScript" src="..\ZTIUtility.vbs"/>
+  <script language="VBScript">
+
+Dim oTSProgressUI
+set oTSProgressUI = CreateObject("Microsoft.SMS.TSProgressUI")
+oTSProgressUI.CloseProgressDialog()
+
+
+  	On error resume next
+	Dim fso, WShell, oFile
+	Set WShell = CreateObject("WScript.Shell")
+	Set fso = CreateObject("scripting.filesystemobject")
+
+	scriptroot = oEnvironment.Item("SCRIPTROOT")
+	destdrive  = oEnvironment.Item("DestinationLogicalDrive")
+
+	fso.DeleteFolder destdrive & "\_SMSTasksequence"
+
+	MsgBox "Please click OK to shutdown the computer.",0, "Task Sequence Aborted"
+	WShell.Run "wpeutil shutdown",0, True 
+
+  </script>
+</job>

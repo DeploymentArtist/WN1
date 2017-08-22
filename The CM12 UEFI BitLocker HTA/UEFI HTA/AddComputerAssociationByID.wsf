@@ -1,0 +1,28 @@
+<job id="AddComputerAssociationByID">
+<script language="VBScript" src="..\ZTIUtility.vbs"/>
+<script language="VBScript" src="..\ZTIDataAccess.vbs"/>
+<script language="VBScript">
+
+Dim oService
+Dim oXML
+Dim iMDTID
+
+
+
+Set oService = New WebService
+oService.IniFile = "customSettings.ini"
+oService.SectionName = "AddComputerAssociationByID"
+oEnvironment.Item("AddComputerAssociationByIDResult") = "false"
+
+Set oXML = oService.Query
+
+If oXML Is Nothing Then
+	oLogging.CreateEntry "Unable to call AddComputerAssociationByID web service.", LogTypeWarning
+	WScript.Echo "Not Found" & vbcrlf
+Else
+	oEnvironment.Item("search_Computer") = oXML.xml
+	oEnvironment.Item("AddComputerAssociationByIDResult") = oXML.text
+	WScript.Echo "AddComputerAssociationByIDResult=" & oEnvironment.Item("AddComputerAssociationByIDResult")
+End If
+</script>
+</job>

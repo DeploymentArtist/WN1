@@ -1,0 +1,16 @@
+<job id="setEnv">
+  <script language="VBScript" src="..\ZTIUtility.vbs"/>
+  <script language="VBScript">
+
+Dim oTSProgressUI
+set oTSProgressUI = CreateObject("Microsoft.SMS.TSProgressUI")
+oTSProgressUI.CloseProgressDialog()
+
+
+  	On error resume next
+	
+	MsgBox "The TPM chip is NOT Enabled in the BIOS.",0, "TPM Status"
+
+
+  </script>
+</job>

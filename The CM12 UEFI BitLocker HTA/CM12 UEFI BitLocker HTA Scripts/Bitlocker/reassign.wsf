@@ -1,0 +1,88 @@
+<job id="Reassign">
+  <script language="VBScript" src="..\ZTIUtility.vbs"/>
+  <script language="VBScript">
+
+Dim oShell
+Dim oTSProgressUI
+Dim ConString
+Dim RsTemp
+Dim SerialNumber
+Dim MachineID
+Dim RecoveryKey
+
+Set WShell=CreateObject("WScript.Shell")
+Set fso=CreateObject("Scripting.FileSystemObject")
+
+strSystemDrive = oEnv("SystemDrive")
+
+Set oTSProgressUI = CreateObject("Microsoft.SMS.TSProgressUI")
+oTSProgressUI.CloseProgressDialog()
+
+'/*****************************
+'/*** Reassign_diskpart
+'/*****************************
+Dim oFS, oSH
+  	
+strTSDataPath = oEnvironment.Item("_SMSTSMDataPath")
+strOSPart     = oEnvironment.Item("ENCPART")
+
+Wscript.Echo "TSDatapath="&strTSDataPath
+WScript.Echo "ENCPART=" & strOSPart
+  	
+If(Len(strTSDataPath) < 1) Then
+	oLogging.CreateEntry "Could not determine TS Data path", LogTypeInfo
+	WScript.Quit(-1) 
+End If
+
+ If(Len(strOSPart) < 1) Then
+	oLogging.CreateEntry "Could not determine OS Part", LogTypeInfo
+	WScript.Quit(-1)
+End If
+  	
+If(Left(strTSDataPath, 1) = Left(strOSPart, 1)) Then
+	oLogging.CreateEntry "TS Data is located on target partition. Exiting.", LogTypeInfo  		
+	WScript.Quit(0)
+End If
+
+If(Left(strTSDataPath, 1) <> "C") Then
+	oLogging.CreateEntry "TS Data is not located on C drive.", LogTypeInfo  		
+  		
+End If
+
+If(Left(oEnvironment.Item("SCCMDRIVE"),1) = Left(strTSDataPath,1) ) Then
+	oLogging.CreateEntry "TS Data is located on SCCM Drive.", LogTypeInfo  	
+	bUSB = True			
+End If	
+
+Set oFS = CreateObject("Scripting.FileSystemObject")
+
+If(Not bUSB) Then
+	oLogging.CreateEntry "Copying " & strTSDataPath & " to " & Left(strOSPart,1) & Mid(strTSDataPath, 2), LogTypeInfo  		
+	oFS.CopyFolder strTSDataPath, Left(strOSPart,1) & Mid(strTSDataPath, 2), True
+End If
+
+Set oDPartFile = oFS.CreateTextFile (strSystemDrive & "\dpartbde.txt", True)
+oDPartFile.WriteLine "SEL VOL=C"
+oDPartFile.WriteLine "ASSIGN LETTER=S"
+If(Not bUSB) Then
+	oDPartFile.WriteLine "SEL VOL=" & Left(strOSPart, 1)
+	oDPartFile.WriteLine "ASSIGN LETTER=C"
+End If
+oDPartFile.Close
+	
+Set oSH = CreateObject("WScript.Shell")
+oSH.Run "cmd.exe /c diskpart /s " & strSystemDrive & "\dpartbde.txt", 0, True
+
+If oEnvironment.Item("_SMSTSMediaType") = "PXE" Then
+	oSH.Run "CMD.EXE /C  rmdir /S /Q ""S:\_SMSTaskSequence""", 0, True
+	oLogging.CreateEntry "Deleting S:\_SMSTaskSequence.", LogTypeInfo
+End If
+
+sCmd = "S:\_SmsTSWinPE" 
+If oFSO.FolderExists( sCmd ) Then
+	oSH.Run "CMD.EXE /C  rmdir /S /Q ""S:\_SmsTSWinPE""", 0, True
+	oLogging.CreateEntry "Deleting S:\_SmsTSWinPE.", LogTypeInfo
+End If
+WScript.Quit(0)
+ </script>
+</job>

@@ -1,0 +1,29 @@
+<job id="ChangeComputerName">
+
+<script language="VBScript" src="..\ZTIUtility.vbs"/>
+<script language="VBScript" src="..\ZTIDataAccess.vbs"/>
+<script language="VBScript">
+
+
+Dim oService
+Dim oXML
+
+Set oService = New WebService
+oService.IniFile = "CustomSettings.ini"
+oService.SectionName = "ChangeComputerName"
+
+Set oXML = oService.Query
+
+If oXML Is Nothing Then
+        oLogging.CreateEntry "Unable to call ChangeComputername WebService.", LogTypeWarning
+	WScript.Echo "Not Found" & vbcrlf
+
+
+Else
+               oEnvironment.Item("OSDCOMPUTERNAME") = oXML.Text
+               WScript.Echo oXML.text
+
+End If
+
+</script>
+</job>

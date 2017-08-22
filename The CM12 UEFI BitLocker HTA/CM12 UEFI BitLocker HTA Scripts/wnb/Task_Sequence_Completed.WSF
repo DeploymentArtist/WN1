@@ -1,0 +1,16 @@
+ <job id="tsdone">
+ <script language="VBScript" src="..\ZTIUtility.vbs"/>
+  <script language="VBScript">
+
+Dim oTSProgressUI
+set oTSProgressUI = CreateObject("Microsoft.SMS.TSProgressUI")
+oTSProgressUI.CloseProgressDialog()
+
+
+    
+
+  
+    MsgBox "Task Sequence Completed." & chr(13) & chr(13) & chr(13) & chr(13) & "Please click OK to logon to Windows.",0, "Success"
+
+  </script>
+</job>

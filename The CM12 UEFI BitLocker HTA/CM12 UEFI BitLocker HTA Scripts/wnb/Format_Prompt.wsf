@@ -1,0 +1,21 @@
+<job id="format">
+  <script language="VBScript" src="..\ZTIUtility.vbs"/>
+  <script language="VBScript">
+
+Dim oTSProgressUI
+set oTSProgressUI = CreateObject("Microsoft.SMS.TSProgressUI")
+oTSProgressUI.CloseProgressDialog()
+
+
+  	On error resume next
+	Dim fso, WShell, oFile
+	Set WShell = CreateObject("WScript.Shell")
+	
+
+	scriptroot = oEnvironment.Item("SCRIPTROOT")
+	
+	MsgBox "No suitable partition found, Please click OK to continue and Format...",0, "Format Partition?"
+
+
+  </script>
+</job>

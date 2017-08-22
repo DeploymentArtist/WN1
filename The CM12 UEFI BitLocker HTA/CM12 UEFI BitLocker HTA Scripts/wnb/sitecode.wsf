@@ -1,0 +1,27 @@
+<job id="MDTMenu_SITEHelper">
+<script language="VBScript" src="..\ZTIUtility.vbs"/>
+<script language="VBScript" src="..\ZTIDataAccess.vbs"/>
+<script language="VBScript">
+
+Dim oService
+Dim oXML
+Dim iMDTID
+
+oEnvironment.Item("SiteCode") = Wscript.Arguments.Named.Item("GetSCCMAssignedSite")
+
+Set oService = New WebService
+oService.IniFile = "customSettings.ini"
+oService.SectionName = "GetSCCMAssignedSite"
+
+Set oXML = oService.Query
+
+If oXML Is Nothing Then
+	oLogging.CreateEntry "Unable to call GetSCCMAssignedSite web service.", LogTypeWarning
+	WScript.Echo "Not Found" & vbcrlf
+Else
+
+	oEnvironment.Item("SiteCode") = oXML.Text
+	WScript.Echo oXML.text	
+End If
+</script>
+</job>

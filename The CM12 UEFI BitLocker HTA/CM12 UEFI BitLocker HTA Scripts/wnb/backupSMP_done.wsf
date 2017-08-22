@@ -1,0 +1,24 @@
+<job id="backupSMP_done">
+  <script language="VBScript" src="..\ZTIUtility.vbs"/>
+  <script language="VBScript">
+
+Dim oTSProgressUI
+set oTSProgressUI = CreateObject("Microsoft.SMS.TSProgressUI")
+oTSProgressUI.CloseProgressDialog()
+
+
+  	On error resume next
+	Dim fso, WShell, oFile
+	Set WShell = CreateObject("WScript.Shell")
+	Set fso = CreateObject("scripting.filesystemobject")
+
+	scriptroot = oEnvironment.Item("SCRIPTROOT")
+	destdrive  = oEnvironment.Item("DestinationLogicalDrive")
+
+	fso.DeleteFolder destdrive & "\_SMSTasksequence"
+
+	MsgBox "Click OK to shutdown this computer. After shutdown, please PXE boot the target computer and start the CM12 UEFI BitLocker HTA. Select the New Computer scenario and choose SMP from restore options.",0, "Backup to SMP is Complete."
+	WShell.Run "wpeutil shutdown",0, True 
+
+  </script>
+</job>

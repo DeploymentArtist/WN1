@@ -1,0 +1,17 @@
+<job id="setEnv">
+  <script language="VBScript" src="..\ZTIUtility.vbs"/>
+  <script language="VBScript">
+
+Dim oTSProgressUI
+set oTSProgressUI = CreateObject("Microsoft.SMS.TSProgressUI")
+oTSProgressUI.CloseProgressDialog()
+
+
+  	On error resume next
+
+	MsgBox "It appears that you are running on battery, please connect to a power supply and then click OK continue.",0, "Warning: No power supply detected."
+	
+
+
+  </script>
+</job>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<migration urlid="http://www.microsoft.com/migration/1.0/migxmlext/custom">
+
+<component context="UserAndSystem" type="System" defaultSupported="FALSE">
+
+<displayName _locID="migsys.Printer">Printer</displayName>
+<role role="Settings">
+<rules>
+<destinationCleanup>
+<objectSet> 
+
+
+<pattern type="Registry">HKCU\software\microsoft\windows NT\currentVersion\Windows\* [*]</pattern>
+<pattern type="Registry">HKCU\software\microsoft\windows NT\CurrentVersion\Devices\* [*]</pattern>
+<pattern type="Registry">HKCU\software\microsoft\windows NT\CurrentVersion\printerPorts\* [*]</pattern>
+<pattern type="Registry">HKCU\software\microsoft\windows NT\CurrentVersion\Windows\* [*]</pattern>
+<pattern type="Registry">HKCU\software\microsoft\windows NT\CurrentVersion\Print\Printers\* [*]</pattern>
+<pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Control\Print\Environments\Windows NT x86\Drivers\* [*]</pattern>
+<pattern type="Registry">HKLM\SYSTEM\ControlSet001\Control\Print\Environments\WindowsNT x86\Drivers\* [*]</pattern>
+<pattern type="Registry">HKLM\SYSTEM\CurentControlSet\Control\Print\Printers\* [*]</pattern>
+<pattern type="Registry">HKLM\SYSTEM\ControlSet001\Control\Print\Printers\* [*]</pattern>
+<pattern type="Registry">HKLM\SYSTEM\CurrentControlSet\Services\lanmanserver\Shares\* [*]</pattern>
+<pattern type="Registry">HKLM\SYSTEM\ControlSet001\Services\lanmanserver\Shares\* [*]</pattern>
+</objectSet>
+  </destinationCleanup>
+</rules>
+</role>
+</component>
+
+
+<!-- This component migrates the printers and network drives -->
+<component type="System">
+    <displayName>Printers and Network Drives</displayName>
+        <role role="Settings">
+            <rules context="UserAndSystem">
+                <include>
+                    <objectSet>
+                        <pattern type="Registry">HKCU\Printers\* [*]</pattern>
+                        <pattern type="Registry">HKCU\Network\* [*]</pattern>
+                    </objectSet>
+                </include>
+            </rules>
+        </role>
+</component>
+
+</migration>

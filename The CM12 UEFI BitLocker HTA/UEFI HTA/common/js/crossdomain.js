@@ -1,0 +1,1 @@
+function CrossDomain(b,a){this.$fb=b;this.fb_sockets=a}CrossDomain.prototype.refresh_height=function(){this.fb_sockets.refresh_height(this.get_height())};CrossDomain.prototype.get_height=function(){return parseInt(this.$fb("iframe").contents().find("#docContainer").outerHeight(true))+30};CrossDomain.prototype.get_location=function(a){this.fb_sockets.get_location(a)};

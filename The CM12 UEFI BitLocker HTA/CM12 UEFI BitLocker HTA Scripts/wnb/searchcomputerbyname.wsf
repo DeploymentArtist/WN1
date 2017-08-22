@@ -1,0 +1,27 @@
+<job id="SearchComputerByName">
+<script language="VBScript" src="..\ZTIUtility.vbs"/>
+<script language="VBScript" src="..\ZTIDataAccess.vbs"/>
+<script language="VBScript">
+
+Dim oService
+Dim oXML
+Dim iMDTID
+
+oEnvironment.Item("search_Computer") = Wscript.Arguments.Named.Item("SearchComputerByName")
+
+Set oService = New WebService
+oService.IniFile = "customSettings.ini"
+oService.SectionName = "SearchComputerByName"
+
+Set oXML = oService.Query
+
+If oXML Is Nothing Then
+	oLogging.CreateEntry "Unable to call SearchComputerByName web service.", LogTypeWarning
+	WScript.Echo "Not Found" & vbcrlf
+Else
+
+	oEnvironment.Item("search_Computer") = oXML.xml
+	WScript.Echo oXML.xml	
+End If
+</script>
+</job>

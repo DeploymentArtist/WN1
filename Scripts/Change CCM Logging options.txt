@@ -1,0 +1,1 @@
+cmd /c REG.exe ADD "HKLM\SOFTWARE\Microsoft\CCM\Logging\@GLOBAL" /v LogLevel /t REG_DWORD /d 0 /f & cmd /c REG.exe ADD "HKLM\SOFTWARE\Microsoft\CCM\Logging\@GLOBAL" /v LogMaxHistory /t REG_DWORD /d 3 /f & cmd /c REG.exe ADD "HKLM\SOFTWARE\Microsoft\CCM\Logging\@GLOBAL" /v LogMaxSize /t REG_DWORD /d 5242880 /f

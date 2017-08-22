@@ -1,0 +1,8 @@
+USMT 6.3 - 2015:01:18_18:35
+
+Copy this file to the root of your USMT folder, 
+it will detail the version of USMT used (USMT 4, USMT 5) and any changes to your USMT ruleset,
+for example below:-
+
+USMT 4 - 2013:01:11_20:06
+1.	Niall Brady: changed amd64\custom.xml to migrate all *.wnb files in the C:\Windows-noob folder.

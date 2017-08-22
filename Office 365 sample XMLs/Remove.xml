@@ -1,0 +1,4 @@
+<Configuration>
+	<Remove ALL="TRUE"/>
+	<Logging Level="Standard" Path="%SYSTEMROOT%\TEMP" />  
+</Configuration>

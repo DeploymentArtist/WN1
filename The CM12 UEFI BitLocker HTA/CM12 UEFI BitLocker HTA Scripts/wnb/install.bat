@@ -1,0 +1,1 @@
+"C:\Windows\ccmsetup\SCEPInstall.exe" /s /q /NoSigsUpdateAtInitialExp /policy "C:\Windows\CCM\EPAMPolicy.xml"

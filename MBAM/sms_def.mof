@@ -1,0 +1,117 @@
+//===================================================
+// Microsoft BitLocker Administration and Monitoring 
+//===================================================
+
+#pragma namespace ("\\\\.\\root\\cimv2\\SMS")
+#pragma deleteclass("Win32_BitLockerEncryptionDetails", NOFAIL)
+[ SMS_Report (TRUE),
+  SMS_Group_Name ("BitLocker Encryption Details"),
+  SMS_Class_ID ("MICROSOFT|BITLOCKER_DETAILS|1.0")]
+class Win32_BitLockerEncryptionDetails : SMS_Class_Template
+{
+    [ SMS_Report (TRUE), key ]
+    String     DeviceId;
+    [ SMS_Report (TRUE) ]
+    String     BitlockerPersistentVolumeId;
+    [ SMS_Report (TRUE) ]
+    String     MbamPersistentVolumeId;
+    [ SMS_Report (TRUE) ]
+    //UNKNOWN = 0, OS_Volume = 1, FIXED_VOLUME = 2, REMOVABLE_VOLUME = 3
+    SInt32     MbamVolumeType;
+    [ SMS_Report (TRUE) ]
+    String     DriveLetter;
+    [ SMS_Report (TRUE) ]
+    //VOLUME_NOT_COMPLIANT = 0, VOLUME_COMPLIANT = 1, NOT_APPLICABLE = 2
+    SInt32     Compliant;
+    [ SMS_Report (TRUE) ]
+    SInt32     ReasonsForNonCompliance[];
+    [ SMS_Report (TRUE) ]
+    SInt32     KeyProtectorTypes[];
+    [ SMS_Report (TRUE) ]
+    SInt32     EncryptionMethod;
+    [ SMS_Report (TRUE) ]
+    SInt32     ConversionStatus;
+    [ SMS_Report (TRUE) ]
+    SInt32     ProtectionStatus;
+    [ SMS_Report (TRUE) ]
+    Boolean     IsAutoUnlockEnabled;
+    [ SMS_Report (TRUE) ]
+    String     NoncomplianceDetectedDate;
+    [ SMS_Report (TRUE) ]
+    String     EnforcePolicyDate;
+};
+
+#pragma namespace ("\\\\.\\root\\cimv2\\SMS")
+#pragma deleteclass("Win32Reg_MBAMPolicy", NOFAIL)
+[ SMS_Report(TRUE),
+  SMS_Group_Name("BitLocker Policy"),
+  SMS_Class_ID("MICROSOFT|MBAM_POLICY|1.0")]
+Class Win32Reg_MBAMPolicy: SMS_Class_Template
+{
+    [SMS_Report(TRUE),key]
+    string KeyName;
+    
+    //General encryption requirements
+    [SMS_Report(TRUE)]
+    UInt32    OsDriveEncryption;
+    [ SMS_Report (TRUE) ]
+    UInt32    FixedDataDriveEncryption;
+    [ SMS_Report (TRUE) ]
+    UInt32    EncryptionMethod;
+
+    //Required protectors properties
+    [ SMS_Report (TRUE) ]
+    UInt32    OsDriveProtector;
+    [ SMS_Report (TRUE) ]
+    UInt32    FixedDataDriveAutoUnlock;
+    [ SMS_Report (TRUE) ]
+    UInt32    FixedDataDrivePassphrase;
+    
+    //MBAM Agent fields
+    //Policy not enforced (0), enforced (1), pending user exemption request (2) or exempted user (3)
+    [SMS_Report(TRUE)]
+    Uint32    MBAMPolicyEnforced;
+    [SMS_Report(TRUE)]
+    string    LastConsoleUser; 
+    //Date of the exemption request of the last logged on user,
+    //or the first date the exemption was granted to him on this machine.
+    [SMS_Report(TRUE)]
+    datetime  UserExemptionDate;
+    //Errors encountered by MBAM agent.
+    [ SMS_Report (TRUE) ]
+    UInt32    MBAMMachineError;
+    [ SMS_Report (TRUE) ]
+    string    EncodedComputerName;
+};
+
+//Read Win32_OperatingSystem.SKU WMI property in a new class - because SKU is not available before Vista.
+#pragma namespace ("\\\\.\\root\\cimv2\\SMS")
+#pragma deleteclass("CCM_OperatingSystemExtended", NOFAIL)
+[ SMS_Report     (TRUE),
+  SMS_Group_Name ("Operating System Ex"),
+  SMS_Class_ID   ("MICROSOFT|OPERATING_SYSTEM_EXT|1.0") ]
+class CCM_OperatingSystemExtended : SMS_Class_Template
+{
+    [SMS_Report (TRUE), key ]
+        string     Name;
+    [SMS_Report (TRUE) ]
+        uint32     SKU;
+};
+
+//Read Win32_ComputerSystem.PCSystemType WMI property in a new class - because PCSystemType is not available before Vista.
+#pragma namespace ("\\\\.\\root\\cimv2\\SMS")
+#pragma deleteclass("CCM_ComputerSystemExtended", NOFAIL)
+[ SMS_Report     (TRUE),
+  SMS_Group_Name ("Computer System Ex"),
+  SMS_Class_ID   ("MICROSOFT|COMPUTER_SYSTEM_EXT|1.0") ]
+class CCM_ComputerSystemExtended : SMS_Class_Template
+{
+    [SMS_Report (TRUE), key ]
+    string     Name;
+    [SMS_Report (TRUE) ]
+    uint16     PCSystemType;
+};
+
+//=======================================================
+// Microsoft BitLocker Administration and Monitoring end
+//=======================================================

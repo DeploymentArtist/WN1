@@ -1,0 +1,31 @@
+
+<job id="GetDriveletter">
+  <script language="VBScript" src="..\ZTIUtility.vbs"/>
+  <script language="VBScript">
+
+dim driveSearch
+Set objFSO = CreateObject("Scripting.FileSystemObject")
+Set colDrives = objFSO.Drives
+
+For Each objDrive in colDrives
+
+driveSearch = objDrive.DriveLetter & ":\\Windows\\explorer.exe"
+
+strComputer = "."
+Set objWMIService = GetObject("winmgmts:" _
+ & "{impersonationLevel=impersonate}!\\" & strComputer & "\root\cimv2")
+
+Set colFiles = _
+ objWMIService.ExecQuery("Select * From CIM_DataFile Where Name = '" & driveSearch & "'")
+
+If colFiles.Count < 1 Then
+ 
+Else
+		oEnvironment.Item("OSDISK") = objDrive.DriveLetter & ":"
+
+wscript.echo "The Windows Driveletter is: " & objDrive.DriveLetter & ":"
+
+End If
+Next
+  </script>
+</job>

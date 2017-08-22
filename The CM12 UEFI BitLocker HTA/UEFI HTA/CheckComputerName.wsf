@@ -1,0 +1,53 @@
+<job id="DoesComputerExist">
+<script language="VBScript" src="..\ZTIUtility.vbs"/>
+<script language="VBScript" src="..\ZTIDataAccess.vbs"/>
+<script language="VBScript">
+
+' script to check if computer is in AD or not, returns True, False
+' niall brady, 2015/1/4
+
+Dim Retval
+Retval=0
+Dim WshShell, WshEnv, oEnvironment, objFS, oFSFile
+Set WshShell = WScript.CreateObject("WScript.Shell")
+Set WshSysEnv = WshShell.Environment("SYSTEM")
+Set WshEnv = WshShell.Environment("PROCESS")
+WshEnv("SEE_MASK_NOZONECHECKS") = 1
+
+oEnvironment.Item("WebParam_Computername") = Wscript.Arguments.Named.Item("Computername")
+' reset the value to false before checking webservice
+oEnvironment.Item("ComputerAccountInAD") = "false"
+DoesComputerExist ()
+
+WScript.Quit(Retval)
+
+Function DoesComputerExist ()
+	Dim oService
+	Dim oXML
+	
+	Set oService = New WebService
+	oService.IniFile = "CustomSettings.ini"
+	oService.SectionName = "DoesComputerExist"
+
+	Set oXML = oService.Query
+	
+	If oXML Is Nothing Then
+		' WScript.Echo "Unable to call DoesComputerExist web service." & vbcrlf
+		oLogging.CreateEntry "Unable to call DoesComputerExist web service.", LogTypeWarning
+	Else
+		oXML.setProperty "SelectionNamespaces", "xmlns:mk='http://maikkoster.com/Deployment'"
+		  If UCase(oXML.SelectSingleNode("mk:boolean").Text) = "TRUE" Then
+		   oLogging.CreateEntry "Computer exists in Active Directory!", LogTypeInfo
+		   'MsgBox "Computer account exists in AD."
+		  Else
+		   oLogging.CreateEntry "Computer does NOT exist in Active Directory!", LogTypeInfo
+		  End If
+		' set the ComputerAccountInAD to true or false
+		oEnvironment.Item("ComputerAccountInAD") = oXML.Text
+		WScript.Echo oXML.text	
+	End If
+End Function 
+</script>
+</job>
+
+

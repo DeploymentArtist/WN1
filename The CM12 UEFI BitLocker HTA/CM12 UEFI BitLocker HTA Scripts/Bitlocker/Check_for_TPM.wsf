@@ -1,0 +1,19 @@
+<job id="checkTPM">
+  <script language="VBScript" src="..\ZTIUtility.vbs"/>
+  <script language="VBScript">
+  
+	Dim oShell
+	Set oShell = CreateObject("WScript.Shell")
+	
+	oEnvironment.Item("TPM_AVAILABLE") = False
+  	
+  	retCode = oShell.Run("cmd /c " & Replace(WScript.ScriptFullName,WScript.ScriptName,"") & "cctk.exe --tpm | find " & chr(34) & "tpm=" & chr(34) , 0, True)
+  
+  	If(retCode = 0) Then
+		oEnvironment.Item("TPM_AVAILABLE") = True	
+  	End If
+  	
+  	WScript.Quit(0)
+
+  </script>
+</job>

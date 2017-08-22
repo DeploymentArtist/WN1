@@ -1,0 +1,33 @@
+<job id="MDTMenu_helloworld">
+<script language="VBScript" src="..\ZTIUtility.vbs"/>
+<script language="VBScript" src="..\ZTIDataAccess.vbs"/>
+<script language="VBScript">
+
+Dim oService
+Dim oXML
+
+
+oEnvironment.Item("lalala3") = Wscript.Arguments.Named.Item("helloworld")
+
+Set oService = New WebService
+oService.IniFile = "customSettings.ini"
+oService.SectionName = "helloworld"
+
+Set oXML = oService.Query
+
+If oXML Is Nothing Then
+	oLogging.CreateEntry "Unable to call HelloWorld web service.", LogTypeWarning
+	WScript.Echo "Not Found" & vbcrlf
+Else
+
+rem	oEnvironment.Item("lalala") = oXML.Text
+rem	WScript.Echo oEnvironment.Item("lalala")
+rem oXML.text	
+
+oXML.setProperty "SelectionNamespaces", "xmlns:wn='http://windows-noob.com/'"
+	WScript.Echo oXML.SelectSingleNode("wn:string").Text	
+
+
+End If
+</script>
+</job>

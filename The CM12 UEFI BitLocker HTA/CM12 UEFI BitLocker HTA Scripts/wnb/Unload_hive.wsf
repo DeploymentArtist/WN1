@@ -1,0 +1,46 @@
+<job id="Unload_Hive">
+<script language="VBScript" src="..\ZTIUtility.vbs"/>
+<script language="VBScript">
+
+
+'On error resume next
+
+
+Dim oShell, oFS, objWMIService, colVolumes
+ 
+
+Set oShell = CreateObject("WScript.Shell")
+Set oFS = CreateObject("Scripting.FileSystemObject")
+Set objWMIService = GetObject("winmgmts:\\.\root\cimv2")
+
+strDestDrive = oEnvironment.Item("OSPART") ' Should have been oEnvironment.Item("DestinationLogicalDrive"), but doesn't work.
+
+ 
+
+
+Set objWMIService = GetObject("winmgmts:\\.\root\cimv2")
+Set colVolumes = objWMIService.ExecQuery ("Select * from Win32_Volume WHERE BootVolume='FALSE'")
+For Each objVolume in colVolumes
+
+            If(oFS.FolderExists(objVolume.DriveLetter & "\Windows")) Then
+
+            strDestDrive = objVolume.DriveLetter
+
+    End If
+
+Next
+If(oFS.FolderExists(strDestDrive & "\Windows")) Then
+
+           
+
+            oShell.Run "cmd.exe /c echo Y |chkdsk /f %OSPART%", 0 , True
+
+            oShell.Run "reg UNLOAD HKLM\$DEST$SOFTWARE", 0 , True
+
+
+            End If
+ 
+
+</script>
+
+</job>

@@ -1,0 +1,50 @@
+===============================================================================
+           SETRES v2.1 (c) Ian Sharpe April 2005. www.iansharpe.com
+===============================================================================
+
+Command line program to change screen resolution, colour depth and refresh 
+frequency in Windows 98-Me-2000-XP
+
+USAGE
+	SETRES hXXXX vXXXX [bXX] [fXX] [n]
+
+hXXXX = Horizontal size of screen in pixels          Not optional. 640 minimum
+vXXXX = Vertical size of screen in pixels            Not optional. 480 minimum
+  bXX = Bit (colour) depth such as 8, 16 24, 32      Optional
+  fXX = Refresh frequncy in Hertz, e.g. 60, 75, 85   Optional
+    n = No 'Press a key' prompt after error          Optional
+
+EXAMPLES
+	  SETRES h1024 v768               = Set screen to 1024 x 768 resolution
+	  SETRES h800 v600 b24            = Set screen to 800 x 600 resolution with
+                                            24-bit colour depth
+	  SETRES h1280 v1024 b32 f75      = 1280x1024 resolution, 32-bit colour,
+                                            75Hz refresh frequency                                         
+	  SETRES h1024 v768 n             = 1024x768 with no 'Press a key' prompt 
+                                            if an error occurs
+
+WARNING
+	SETRES does not check the capabilities of your hardware. Windows
+	is supposed to reject unsupported settings but do not rely on this.
+	If you specify unsupported settings, I WILL NOT ACCEPT RESPONSIBILITY
+	FOR THE CONSEQUENCES.
+
+UPDATE HISTORY
+Version 2.1 changes the way the program behaves when it reports an error:
+- 'Press a key' prompt can be avoided with the N command line parameter
+- High CPU usage when prompt displayed is now eliminated
+- Prompt beeps and times out after 15 seconds
+The above changes were in response to a request from the user of a program
+that invokes Setres
+
+===============================================================================
+The files in this package were created by Ian Sharpe who owns the copyright.
+
+They are free to use and may be distributed on a not-for-profit basis provided 
+all files are supplied and their contents are not altered in any way.
+
+Visit www.iansharpe.com for more programs, articles and the latest information.
+
+If this package helps you, please consider making a contribution to my Web 
+site's running costs.
+===============================================================================

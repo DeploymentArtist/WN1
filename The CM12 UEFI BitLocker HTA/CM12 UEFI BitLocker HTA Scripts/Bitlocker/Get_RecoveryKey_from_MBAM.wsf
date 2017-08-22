@@ -1,0 +1,73 @@
+<job id="GetBitLockerKey">
+  <script language="VBScript" src="..\ZTIUtility.vbs"/>
+  <script language="VBScript" src="..\ZTIDataAccess.vbs"/>
+  <script language="VBScript">
+'
+' added some variables to make it more dynamic instead of hard coding things
+' Niall Brady, 2015/6/18
+' www.windows-noob.com
+'  
+		Dim ConString
+		Dim RsTemp
+		Dim SerialNumber
+		Dim MachineID
+		Dim RecoveryKey
+		Dim oEnv
+
+
+		Set ArgObj 	= WScript.Arguments
+		strUser		= ArgObj(3)
+		strEncPart 	= ArgObj(2)
+		strPassword 	= ArgObj(1)
+		strServer 	= ArgObj(0)
+		
+		
+		Set oEnv=CreateObject("Microsoft.SMS.TSEnvironment")
+		Set WShell=CreateObject("WScript.Shell")
+		Set fso=CreateObject("Scripting.FileSystemObject")
+		
+		Wshell.Run "%comspec% /C manage-bde.exe -protectors -get " &strEncPart &"> x:\BLInfo.txt",1,true
+
+		Set InfoFile=fso.OpenTextFile("x:\BLInfo.txt")
+		Do While Not InfoFile.AtEndOfStream
+			Filerow=InfoFile.ReadLine
+			'msgbox "Filerow=" &Filerow
+			If InStr(FileRow,"Numerical Password")<>0 Then'And InStr(FileRow,"Numerical Password")=0 
+			Password=InfoFile.ReadLine
+
+'	msgbox "Numerical Password:" &Password
+				Exit Do
+			End If
+		Loop
+		
+		Password=Mid(Password,12,36)
+		
+		'PARAMETERS
+'		ConString="Provider=SQLOLEDB.1;Data Source=1.2.3.4,1433;Initial Catalog=MBAM Recovery and Hardware;User ID=OSD;Password=xxxxxxxx"	
+'		ConString="Provider=SQLOLEDB.1;Data Source=" &strServer &",1433;Initial Catalog=MBAM Recovery and Hardware;User ID=OSD;Password=" &strPassword
+		ConString="Provider=SQLOLEDB.1;Data Source=" &strServer &",1433;Initial Catalog=MBAM Recovery and Hardware;User ID=" &strUser & ";Password=" &strPassword
+	
+		
+		'MAIN
+		
+		SQL="SELECT RecoveryKey FROM RecoveryAndHardwareCore.Keys WHERE RecoveryKeyID='" &Password &"'" 
+		Set RsTemp=GetRs(SQL)
+		RecoveryKey=RsTemp("RecoveryKey")
+		
+		oEnv("RecoveryKey")=RecoveryKey
+
+'msgbox "RecoveryKey retrieved from MBAM is:" &RecoveryKey
+		
+		Function GetRs(SQL)
+			Dim Con
+			Dim Rs
+			
+			Set Con=CreateObject("ADODB.Connection")
+			Con.Open(ConString)
+			
+			Set Rs=Con.Execute(SQL)
+			
+			GetRs=Rs
+		End Function
+	</script>
+</job>

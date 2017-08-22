@@ -1,0 +1,16 @@
+<Configuration>
+	<Add OfficeClientEdition="32" >
+		<Product ID="O365ProPlusRetail">
+			<Language ID="en-us" />
+			<ExcludeApp ID= "Groove" />
+		</Product>
+		<Product ID="GrooveRetail">
+			<Language ID="en-us" />
+		</Product>
+	</Add>
+	<Updates Enabled="FALSE" UpdatePath="" />
+	<Display Level="NONE" AcceptEULA="TRUE" />
+	<Logging Level="Standard" Path="%SYSTEMROOT%\TEMP" />  
+	<Property Name="AUTOACTIVATE" Value="1" />
+	<Property Name="FORCEAPPSHUTDOWN" Value="TRUE" />
+</Configuration>

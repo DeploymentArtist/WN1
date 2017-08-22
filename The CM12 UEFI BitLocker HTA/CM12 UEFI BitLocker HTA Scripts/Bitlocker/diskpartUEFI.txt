@@ -1,0 +1,10 @@
+sel disk 0
+sel vol 1
+remove
+sel vol 3
+remove
+sel par 1
+assign letter=s
+sel par 4
+assign letter=c
+exit

@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<migration urlid="http://www.microsoft.com/migration/1.0/migxmlext/IncludeExtensionsandExcludeFixedDisc">
+<!-- Exclude.xml is basically a custom XML file which we use to include a bunch of file extensions (remove the ones you don't want migrated) and to exclude our USMT/USB drives in case the OS detects them as fixed discs and ignores the /localonly switch -->
+<!-- This version last edited by Niall Brady, 2012-08-16 -->
+<!-- http://www.niallbrady.com -->
+
+	<_locDefinition>
+		<_locDefault _loc="locNone"></_locDefault>
+		<_locTag _loc="locData">displayName</_locTag>
+	</_locDefinition>
+
+<!-- This component migrates user files with known extensions-->
+	<component type="Documents" context="System">
+		<displayName _locID="miguser.userdata">Scan for user data in system root</displayName>
+		<role role="Data">
+			<rules>
+				<include>
+					<objectSet>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.323]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.3gp]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.aa]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.aac]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.accdb]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.acd]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.acsup]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.adb]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.ade]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.adn]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.adp]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.ai]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.aif]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.aiff]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.arc]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.asf]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.asx]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.avi]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.avsup]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.avs]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.bhx]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.bjx]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.bmp]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.box]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.bqy]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.btw]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.cad]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.cda]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.cer]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.chf]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.CLASS]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.cnf]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.cpp]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.CSS]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.CT]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.cvsup]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.cxx]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.c]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.db*]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.DGC]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.dic]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.dsk]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.dsp]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.dwf]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.dwg]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.dxf]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.epf]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.eps]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.fav]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.fdf]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.FH10]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.FH7]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.FH8]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.fm]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.fpc]", "Fixed")</script>						
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.fphtml]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.gho]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.ghs]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.gif]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.GRS]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.gz]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.hmx]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.hpp]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.hqx]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.html]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.htm]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.hxx]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.h]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.idx]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.id]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.iff]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.ifo]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.iii]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.img]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.inl]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.iso]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.jpeg]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.jpg]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.JS]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.lic]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.m3u]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.m4a]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.m4p]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.m4v]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.mak]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.mbx]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.md1]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.mda]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.mde]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.mdl]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.mdw]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.midi]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.mid]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.mkv]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.mod]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.moov]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.movie]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.mov]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.mp1]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.mp2]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.mp3]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.mp4]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.mpa]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.mpd]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.mpeg]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.mpe]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.mpg]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.mpj]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.mpt]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.mpw]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.mpx]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.msg]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.mus]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.nk2]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.NRG]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.nsf]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.nsk]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.oce]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.odb]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.oft]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.opx]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.ora]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.ost]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.p12]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.pab]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.PAF]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.pdf]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.pfx]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.PHP]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.pjx]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.pm3]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.pm4]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.pm5]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.pm6]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.pm7]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.png]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.pot*]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.potm]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.potx]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.ppam]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.pqi]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.prf]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.prn]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.pro]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.ps]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.pwz]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.qpr]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.qtm]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.qt]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.qvw]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.ram]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.rar]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.ra]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.rbs]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.rm]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.rql]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.rsf]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.rvx]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.rxc]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.scm]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.scx]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.snp]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.spd]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.spk]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.sql]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.swf]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.tab]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.tar]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.taz]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.tif]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.tgz]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.tml]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.TRC]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.tz]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.uls]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.uu]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.vbg]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.vcd]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.vcx]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.vhd]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.vmc]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.vmdk]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.vmv]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.vmx]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.vob]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.vpb]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.vss]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.vst]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.vsw]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.vue]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.wav]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.wma]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.wmv]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.xcl]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.zip]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("* [*.qdf]", "Fixed")</script>
+                        <script>MigXmlHelper.GenerateDrivePatterns ("* [*.qsd]", "Fixed")</script>
+                        <script>MigXmlHelper.GenerateDrivePatterns ("* [*.qel]", "Fixed")</script>
+               			<script>MigXmlHelper.GenerateDrivePatterns ("* [*.qph]", "Fixed")</script>
+               			<script>MigXmlHelper.GenerateDrivePatterns ("* [*.doc*]", "Fixed")</script>
+               			<script>MigXmlHelper.GenerateDrivePatterns ("* [*.dot*]", "Fixed")</script>
+              			<script>MigXmlHelper.GenerateDrivePatterns ("* [*.rtf]", "Fixed")</script>
+               			<script>MigXmlHelper.GenerateDrivePatterns ("* [*.mcw]", "Fixed")</script>
+              			<script>MigXmlHelper.GenerateDrivePatterns ("* [*.wps]", "Fixed")</script>
+               			<script>MigXmlHelper.GenerateDrivePatterns ("* [*.scd]", "Fixed")</script>
+              			<script>MigXmlHelper.GenerateDrivePatterns ("* [*.wri]", "Fixed")</script>
+               			<script>MigXmlHelper.GenerateDrivePatterns ("* [*.wpd]", "Fixed")</script>
+               			<script>MigXmlHelper.GenerateDrivePatterns ("* [*.xl*]", "Fixed")</script>
+               			<script>MigXmlHelper.GenerateDrivePatterns ("* [*.csv]", "Fixed")</script>
+               			<script>MigXmlHelper.GenerateDrivePatterns ("* [*.iqy]", "Fixed")</script>
+               			<script>MigXmlHelper.GenerateDrivePatterns ("* [*.dqy]", "Fixed")</script>
+               			<script>MigXmlHelper.GenerateDrivePatterns ("* [*.oqy]", "Fixed")</script>
+               			<script>MigXmlHelper.GenerateDrivePatterns ("* [*.rqy]", "Fixed")</script>
+               			<script>MigXmlHelper.GenerateDrivePatterns ("* [*.wk*]", "Fixed")</script>
+               			<script>MigXmlHelper.GenerateDrivePatterns ("* [*.wq1]", "Fixed")</script>
+               			<script>MigXmlHelper.GenerateDrivePatterns ("* [*.slk]", "Fixed")</script>
+               			<script>MigXmlHelper.GenerateDrivePatterns ("* [*.dif]", "Fixed")</script>
+               			<script>MigXmlHelper.GenerateDrivePatterns ("* [*.ppt*]", "Fixed")</script>
+               			<script>MigXmlHelper.GenerateDrivePatterns ("* [*.pps*]", "Fixed")</script>
+               			<script>MigXmlHelper.GenerateDrivePatterns ("* [*.pot*]", "Fixed")</script>
+               			<script>MigXmlHelper.GenerateDrivePatterns ("* [*.sh3]", "Fixed")</script>
+               			<script>MigXmlHelper.GenerateDrivePatterns ("* [*.ch3]", "Fixed")</script>
+               			<script>MigXmlHelper.GenerateDrivePatterns ("* [*.pre]", "Fixed")</script>
+               			<script>MigXmlHelper.GenerateDrivePatterns ("* [*.ppa]", "Fixed")</script>
+               			<script>MigXmlHelper.GenerateDrivePatterns ("* [*.txt]", "Fixed")</script>
+               			<script>MigXmlHelper.GenerateDrivePatterns ("* [*.pst]", "Fixed")</script>
+              			<script>MigXmlHelper.GenerateDrivePatterns ("* [*.one*]", "Fixed")</script>
+               			<script>MigXmlHelper.GenerateDrivePatterns ("* [*.vl*]", "Fixed")</script>
+               			<script>MigXmlHelper.GenerateDrivePatterns ("* [*.vsd]", "Fixed")</script>
+               			<script>MigXmlHelper.GenerateDrivePatterns ("* [*.mpp]", "Fixed")</script>
+               			<script>MigXmlHelper.GenerateDrivePatterns ("* [*.or6]", "Fixed")</script>
+               			<script>MigXmlHelper.GenerateDrivePatterns ("* [*.accdb]", "Fixed")</script>
+               			<script>MigXmlHelper.GenerateDrivePatterns ("* [*.mdb]", "Fixed")</script>
+               			<script>MigXmlHelper.GenerateDrivePatterns ("* [*.pub]", "Fixed")</script>
+						</objectSet>
+				</include>
+				<exclude>
+					<objectSet>
+						<script>MigXmlHelper.GenerateDrivePatterns ("\Winnt\* [*]", "Fixed")</script> 
+						<script>MigXmlHelper.GenerateDrivePatterns ("\Windows\* [*]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("\Program Files\* [*]", "Fixed")</script>
+						<script>MigXmlHelper.GenerateDrivePatterns ("\Program Files (x86)\* [*]", "Fixed")</script>
+						<pattern type="File">%CSIDL_WINNT%\* [*]</pattern>
+						<pattern type="File">%CSIDL_WINDOWS%\* [*]</pattern>
+						<pattern type="File">%CSIDL_PROGRAM_FILES%\* [*]</pattern>
+						<pattern type="File">%CSIDL_PROGRAM_FILESX86%\* [*]</pattern>
+						<pattern type="File">%CSIDL_DEFAULT_INTERNET_CACHE%\* [*]</pattern>
+						<pattern type="File">%CSIDL_INTERNET_CACHE%\* [*]</pattern>
+						<pattern type="File">%CSIDL_INTERNET_CACHE%\LOW\* [*]</pattern>
+						<pattern type="File">%TEMP%\* [*]</pattern>
+					</objectSet>
+				</exclude>
+			</rules>
+		</role>
+	</component>
+
+<!-- UnconditionalExclude for SYSTEM CONTEXT -->
+	
+<component context="System" type="Documents">
+		
+<displayName _locID="SYSTEM Exclusions">SYSTEM Exclusions</displayName>
+
+		<role role="Data">
+			
+		<rules>
+				
+		<unconditionalExclude>
+					
+		<objectSet>
+						
+				<!-- I've moved the unconditional excludes for the WINDOWS dir to EXCLUDES due to wallpaper requirements  -->
+		
+ 				<script>MigXmlHelper.GenerateDrivePatterns ("\Program Files (x86)\* [*] ", "Fixed")</script>        
+				<script>MigXmlHelper.GenerateDrivePatterns ("\ProgramData\* [*] ", "Fixed")</script>        
+				<script>MigXmlHelper.GenerateDrivePatterns ("\_SMSTaskSequence\* [*] ", "Fixed")</script>        
+				<script>MigXmlHelper.GenerateDrivePatterns ("\MININT [*.*]", "Fixed")</script>
+				<script>MigXmlHelper.GenerateDrivePatterns("* [ImageSuccessful.txt]", "Fixed")</script>
+	
+		</objectSet>
+	
+		</unconditionalExclude>
+			
+		</rules>
+		
+</role>
+	
+</component>
+
+	
+<!-- UnconditionalExclude for USER CONTEXT -->
+	<component context="User" type="Documents">
+		<displayName _locID="miguser.userdata">USER Exclusions</displayName>
+		<role role="Data">
+			<rules>
+				<unconditionalExclude>
+					<objectSet>
+						<script>MigXmlHelper.GenerateDrivePatterns("%CSIDL_LOCAL_APPDATA%\* [*] ", "Fixed")</script>
+					</objectSet>
+				</unconditionalExclude>
+			</rules>
+		</role>
+	</component>
+	
+	
+<!-- Conditional exclude section -->		
+		<component type="Documents" context="System">
+		<displayName _locID="miguser.userdata">Conditional D Drive Exclusion</displayName>
+		<role role="Data">
+			<rules>
+				<conditions>
+					<condition>MigXmlHelper.DoesObjectExist("File","D:\User State Migration Tool")</condition>
+				</conditions>
+				<unconditionalExclude>
+					<objectSet>
+						<pattern type="File">D:\* [*]</pattern>
+					</objectSet>
+				</unconditionalExclude>
+			</rules>
+		</role>
+	</component>
+	<component type="Documents" context="System">
+		<displayName _locID="miguser.userdata">Conditional E Drive Exclusion</displayName>
+		<role role="Data">
+			<rules>
+				<conditions>
+					<condition>MigXmlHelper.DoesObjectExist("File","E:\User State Migration Tool")</condition>
+				</conditions>
+				<unconditionalExclude>
+					<objectSet>
+						<pattern type="File">E:\* [*]</pattern>
+					</objectSet>
+				</unconditionalExclude>
+			</rules>
+		</role>
+	</component>
+	<component type="Documents" context="System">
+		<displayName _locID="miguser.userdata">Conditional F Drive Exclusion</displayName>
+		<role role="Data">
+			<rules>
+				<conditions>
+					<condition>MigXmlHelper.DoesObjectExist("File","F:\User State Migration Tool")</condition>
+				</conditions>
+				<unconditionalExclude>
+					<objectSet>
+						<pattern type="File">F:\* [*]</pattern>
+					</objectSet>
+				</unconditionalExclude>
+			</rules>
+		</role>
+	</component>
+</migration>

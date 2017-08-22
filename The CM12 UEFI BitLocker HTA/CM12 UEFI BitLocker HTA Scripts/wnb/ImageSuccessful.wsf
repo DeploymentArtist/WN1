@@ -1,0 +1,21 @@
+<job id="ImageSuccessful">
+  <script language="VBScript" src="..\ZTIUtility.vbs"/>
+  <script language="VBScript">
+
+Dim oTSProgressUI
+set oTSProgressUI = CreateObject("Microsoft.SMS.TSProgressUI")
+oTSProgressUI.CloseProgressDialog()
+
+
+  	On error resume next
+	Dim fso, WShell, oFile
+	Set WShell = CreateObject("WScript.Shell")
+	Set fso = CreateObject("scripting.filesystemobject")
+
+	scriptroot = oEnvironment.Item("SCRIPTROOT")
+	destdrive  = oEnvironment.Item("DestinationLogicalDrive")
+
+	MsgBox "The Image Installation process is now complete." & chr(13) & chr(13)  & "Please click OK to use Windows",0, "Task Sequence Successfully completed!"
+
+  </script>
+</job>

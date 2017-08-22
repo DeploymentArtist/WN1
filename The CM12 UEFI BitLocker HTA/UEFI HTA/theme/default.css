@@ -1,0 +1,733 @@
+/* Reset styles of the form */
+#docContainer div, #docContainer span, #docContainer applet, #docContainer object, #docContainer iframe, #docContainer
+h1, #docContainer h2, #docContainer h3, #docContainer h4, #docContainer h5, #docContainer h6, #docContainer p, #docContainer blockquote, #docContainer pre, #docContainer
+a, #docContainer abbr, #docContainer acronym, #docContainer address, #docContainer big, #docContainer cite, #docContainer code, #docContainer
+del, #docContainer dfn, #docContainer em, #docContainer img, #docContainer ins, #docContainer kbd, #docContainer q, #docContainer s, #docContainer samp, #docContainer
+small, #docContainer strike, #docContainer strong, #docContainer sub, #docContainer sup, #docContainer tt, #docContainer var, #docContainer
+b, #docContainer u, #docContainer i, #docContainer center, #docContainer
+dl, #docContainer dt, #docContainer dd, #docContainer ol, #docContainer ul, #docContainer li, #docContainer
+fieldset, #docContainer form, #docContainer label, #docContainer legend, #docContainer
+table, #docContainer caption, #docContainer tbody, #docContainer tfoot, #docContainer thead, #docContainer tr, #docContainer th, #docContainer td, #docContainer
+article, #docContainer aside, #docContainer canvas, #docContainer details, #docContainer embed, #docContainer 
+figure, #docContainer figcaption, #docContainer footer, #docContainer header, #docContainer hgroup, #docContainer 
+menu, #docContainer nav, #docContainer output, #docContainer ruby, #docContainer section, #docContainer summary, #docContainer
+time, #docContainer mark, #docContainer audio, #docContainer video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: top;
+}
+
+/* HTML5 display-role reset for older browsers */
+#docContainer article, #docContainer aside, #docContainer details, #docContainer figcaption, #docContainer figure, #docContainer 
+footer, #docContainer header, #docContainer hgroup, #docContainer menu, #docContainer nav, #docContainer section {
+	display: block;
+}
+
+#docContainer ol, #docContainer ul {
+	list-style: none;
+}
+
+#docContainer blockquote, #docContainer q {
+	quotes: none;
+}
+#docContainer blockquote:before, #docContainer blockquote:after, #docContainer
+q:before, #docContainer q:after {
+	content: '';
+	content: none;
+}
+#docContainer table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/*Hiding/showing hints.*/
+.hidden_hint {
+	display:none !important;
+}
+
+input:focus + .fb-hint, select:focus + .fb-hint,
+textarea:focus + .fb-hint {
+	display:inline-block !important;
+}
+
+
+/* Hiddes the spinning buttons in webkit*/
+input[type="date"]::-webkit-outer-spin-button,
+input[type="date"]::-webkit-inner-spin-button {
+    display: none;
+}
+
+/* Placeholder colors */
+.placeholder {
+	color:#BEBEBE !important;
+}
+
+#docContainer ::-webkit-input-placeholder {
+    color:#BEBEBE !important;
+}
+#docContainer :-moz-placeholder {
+    color:#BEBEBE !important;
+}
+
+
+/* Style to force the submit button to not be standard */
+.non-standard{
+	-webkit-appearance: none;
+	font-size:17px;
+	padding:0px;
+	color: rgb(0,0,0);
+	background-color: rgb(192,192,192);
+	border: 2px solid rgb(50,50,50);	
+}
+
+/* Container for the scripts error reporting */
+#fb_error_report {
+	border: 1px solid #BF0000 !important; 
+	padding: 10px !important; 
+	margin: 10px !important;
+	background-color: #fff;
+	display:inline-block;
+	width:90%;
+}
+
+/* Heading for the scripts error reporting */
+#fb_error_report h4 {
+	color:#BF0000;
+	font-size: 16px;
+}
+
+/* Container for the scripts error elements */
+#fb_error_report ul {
+	list-style-type: disc;
+	padding:20px;
+}
+
+/* Scripts error elements */
+#fb_error_report ul li {
+	color: #888;
+}
+
+/* Theme CSS */
+/* This rule will applied to the form container */
+#docContainer {
+margin: 40px auto;
+   padding:0px 0px 0px 0px;
+   width: 600px;
+   font-family: Helvetica, Arial, Sans-serif;
+   font-size:13px;
+   color: #333;
+ /* background-color: rgb(246,246,246);*/
+ background-color: rgb(156,182,214);
+   border: 1px solid rgb(193,193,193);
+   -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,0.28);
+   -moz-box-shadow: 0 0 10px 0 rgba(0,0,0,0.28);
+   box-shadow: 0 0 10px 0 rgba(0,0,0,0.28);
+   -webkit-border-radius: 6px;
+   -moz-border-radius: 6px;
+   border-radius: 6px;
+}
+
+#docContainer #fb-form-header1 {
+	height:5px;	
+	padding-left:10px;
+	padding-top:10px;
+	
+}
+
+/* Special rule to modify the selector by a new one that can be used in both for Mac and Windows. Must be used with !important*/
+#docContainer .selected-object {
+   
+}
+
+	/* Column properties. This applies to a common style inside the form  in fb-large mode*/
+#docContainer.fb-large .column {
+	margin: 0px;
+	padding: 0 7% 0 7%;
+}
+
+	/* Column properties. This applies to a common style inside the form */
+#docContainer .column {
+	margin: 0px;
+	padding: 0 5% 0 5%;
+}
+
+	/* Column properties. This applies to a common style inside the form  in fb-small mode*/
+#docContainer.fb-small .column {
+	margin: 0px;
+	padding: 0 0 0 8%;
+}
+
+
+/* Common rule for the items (label and control)*/
+#docContainer .fb-item {
+	width: 100%;
+	display:inline-block;
+    zoom:1;
+    *display:inline;
+}
+
+
+/* Common rules for the items padding*/
+
+#docContainer.fb-large .fb-item {   
+   padding:6px 4px 15px 4px;
+}
+#docContainer .fb-item {   
+   padding:5px 4px 10px 4px;
+}
+#docContainer.fb-small .fb-item {   
+   padding:4px 2px 5px 2px;
+}
+
+
+/* Common rules for the submit button container padding*/
+
+#docContainer.fb-large #fb-submit-button-div {   
+   padding: 6px 5px 20px 5px;
+}
+#docContainer #fb-submit-button-div {   
+   padding: 5px 5px 15px 5px;
+}
+#docContainer.fb-small #fb-submit-button-div {   
+   padding: 4px 3px 10px 3px;
+}
+
+/*Rules for the width of the item depending on the current mode used for width */
+
+/*fb-large mode classes*/
+
+#docContainer.fb-large .fb-item.fb-100-item-column{ width:100%; }
+#docContainer.fb-large .fb-item.fb-75-item-column{ 	width:73%; }
+#docContainer.fb-large .fb-item.fb-66-item-column{ 	width:64%; }
+#docContainer.fb-large .fb-item.fb-50-item-column{	width:48%; }
+#docContainer.fb-large .fb-item.fb-33-item-column{	width:31%; }
+#docContainer.fb-large .fb-item.fb-25-item-column{	width:22%; }
+#docContainer.fb-large .fb-item.fb-20-item-column{	width:18%; }
+
+/*Normal mode classes*/
+#docContainer .fb-item.fb-100-item-column{ 	width:99%; }
+#docContainer .fb-item.fb-75-item-column{ 	width:72%; }
+#docContainer .fb-item.fb-66-item-column{ 	width:63%; }
+#docContainer .fb-item.fb-50-item-column{	width:47%; }
+#docContainer .fb-item.fb-33-item-column{	width:30%; }
+#docContainer .fb-item.fb-25-item-column{	width:21%; }
+#docContainer .fb-item.fb-20-item-column{	width:16%; }
+
+/*fb-small mode classes*/
+
+#docContainer.fb-small .fb-item.fb-100-item-column{	width:98%; }
+#docContainer.fb-small .fb-item.fb-75-item-column{ 	width:70%; }
+#docContainer.fb-small .fb-item.fb-66-item-column{ 	width:61%; }
+#docContainer.fb-small .fb-item.fb-50-item-column{	width:45%; }
+#docContainer.fb-small .fb-item.fb-33-item-column{	width:28%; }
+#docContainer.fb-small .fb-item.fb-25-item-column{	width:21%; }
+#docContainer.fb-small .fb-item.fb-20-item-column{	width:15%; }
+
+
+/*Form Elements. This rule is common to all elements (inputs/selects) in fb-large Mode*/
+#docContainer.fb-large  input[type=text], #docContainer.fb-large  input[type=password], 
+#docContainer.fb-large  input[type=email], #docContainer.fb-large  input[type=number],
+#docContainer.fb-large  input[type=date], #docContainer.fb-large  input[type=url], 
+#docContainer.fb-large  textarea, #docContainer.fb-large  input[type=file],
+#docContainer.fb-large  input[type=tel]{
+	color: #666;
+	font: normal 12px Helvetica, Arial, Sans-serif;
+	border: 1px solid rgb(220,223,231);
+	border-top-color: rgb(170,173,178);
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	width:99%;
+	max-width:100%;
+}
+
+#docContainer select {width:99%;
+max-width:100%;}
+
+	/*Form Elements. This rule is common to all elements (inputs/selects)*/
+#docContainer input[type=text], #docContainer input[type=password], 
+#docContainer input[type=email], #docContainer input[type=number],
+#docContainer input[type=date], #docContainer input[type=url], 
+#docContainer textarea, #docContainer input[type=file],
+#docContainer input[type=tel] {
+	color: #666;
+	font: normal 12px Helvetica, Arial, Sans-serif;
+	border: 1px solid rgb(220,223,231);
+	border-top-color: rgb(170,173,178);
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	width:98%;
+	max-width:100%;
+}
+
+/*Form Elements. This rule is common to all elements (inputs/selects) in fb-small Mode*/
+#docContainer.fb-small input[type=text], #docContainer.fb-small input[type=password], 
+#docContainer.fb-small input[type=email], #docContainer.fb-small input[type=number],
+#docContainer.fb-small input[type=date], #docContainer.fb-small input[type=url], 
+#docContainer.fb-small textarea, #docContainer.fb-small input[type=file],
+#docContainer.fb-small input[type=tel] {
+	color: #666;
+	font: normal 11px Helvetica, Arial, Sans-serif;
+	border: 1px solid rgb(220,223,231);
+	border-top-color: rgb(170,173,178);
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	width:92%;
+	max-width:100%;
+}
+
+#docContainer input[type=file]  {
+   border:none;
+}
+#docContainer.fb-small input[type=file] {
+	border:none;
+}
+#docContainer.fb-large input[type=file] {
+	border:none;
+}
+
+	/*Form Elements. This rule is common to all inputs boxes in fb-large Mode*/
+#docContainer.fb-large input[type=text], #docContainer.fb-large input[type=password], 
+#docContainer.fb-large input[type=email], #docContainer.fb-large input[type=number],
+#docContainer.fb-large input[type=date], #docContainer.fb-large input[type=url],
+#docContainer.fb-large textarea, #docContainer.fb-large input[type=tel] {
+	padding: 9px 6px 9px 6px;
+}
+	
+	/*Form Elements. This rule is common to all inputs boxes*/
+#docContainer input[type=text], #docContainer input[type=password], 
+#docContainer input[type=email], #docContainer input[type=number],
+#docContainer input[type=date], #docContainer input[type=url],
+#docContainer input[type=tel], #docContainer textarea {
+	padding: 7px 4px 7px 4px;
+}
+
+	/*Form Elements. This rule is common to all inputs boxes in fb-small Mode*/
+#docContainer.fb-small input[type=text], #docContainer.fb-small input[type=password], 
+#docContainer.fb-small input[type=email], #docContainer.fb-small input[type=number],
+#docContainer.fb-small input[type=date], #docContainer.fb-small input[type=url],
+#docContainer.fb-small textarea, #docContainer.fb-small input[type=tel] {
+	padding: 4px 1px 4px 1px;
+}
+
+
+
+#docContainer .fb-input-number {}
+
+
+#docContainer .fb-input-number input {color: rgb(69,69,69);
+			font: normal 12px Helvetica, arial;
+			border: 1px solid rgb(220,223,231);
+			border-top-color: rgb(170,173,178);
+			-webkit-border-radius: 3px;
+			-moz-border-radius: 3px;
+			border-radius: 3px;}
+
+/* Rule for the title container */
+	#docContainer .fb-header { 
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	color:#000;
+	text-align:left;
+}
+
+/* Rule for the title */
+#docContainer .fb-header h2 {font-family: Helvetica, Arial; font-size: 20px; font-weight: bold; padding-top: 0px; color: #333; text-shadow: 0 1px 0 rgba(0,0,0,0.1);}
+#docContainer.fb-small .fb-header h2 {font-size: 16px; font-weight: bold; padding-top: 0px; color: #333; text-shadow: 0 1px 0 rgba(0,0,0,0.1);}
+
+/* Rule for the static text container*/
+#docContainer .fb-static-text { font-family: Helvetica, Arial; margin: 0px; color: #999;}
+
+/* Rule for the static text */
+#docContainer .fb-static-text p { font-family: Helvetica, Arial; font-size: 14px; line-height: 1.6em; padding-bottom: 15px;}
+#docContainer.fb-small .fb-static-text p { font-family: Helvetica, Arial; font-size: 13px; line-height: 1.6em; padding-bottom: 15px;}
+
+/*  Rule for Submit button container */
+#docContainer #fb-submit-button-div {height: 65px; padding: 10px 0 0 0;}
+
+/*  Rule for Submit button */
+#fb-submit-button {
+	color: #fff;
+	font-family: Helvetica, Arial;
+	font-weight: bolder;
+	font-size:15px;
+	border: none;
+	margin-right: 6%;
+	margin-left: 6%;
+	width: 102px; height: 31px;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.3);
+	cursor: pointer;
+	background: url('../images/btn_submit.png') no-repeat;
+	padding:0;
+}
+
+#fb-submit-button:hover {
+	background: url('../images/btn_submit_hov.png') no-repeat;
+
+}
+
+/*  Rule for captcha container */
+#fb-captcha_control { 
+	text-align: center;
+	padding: 30px 0 30px 0 !important; 
+}
+
+/* Rule to be able to control the position of the captcha when generated */
+#fb-captcha_control > div { display:inline-block; }
+
+/*  Rule for captcha input */
+#fb-captcha_control input { padding: 2px 0 !important; }
+
+/*  Rule for captcha internal */
+#recaptcha_table { background-color: rgb(255,255,255); }
+
+/* Rule for the hints */
+#docContainer .fb-hint {
+	display:inline-block;
+	font-size: 11px;
+	color: #888;
+	margin: 5px 0px 1px 0px;
+}
+
+
+/* Rule for the text area container */
+#docContainer .fb-textarea {}
+
+/* Rule for the text area box */
+#docContainer .fb-textarea textarea { height: 140px; color: rgb(69,69,69);
+			font: normal 12px Helvetica, Arial, Sans-serif;
+			border: 1px solid rgb(220,223,231);
+			border-top-color: rgb(170,173,178);
+			-webkit-border-radius: 3px;
+			-moz-border-radius: 3px;
+			border-radius: 3px;}
+
+/* Rule for the checkbox container */
+#docContainer .fb-checkbox { padding: 0 0 0 2px; color: #444; }
+
+/* Rule for the checkbox inputs */
+#docContainer .fb-checkbox input { padding: 0 0 0 2px; display:inline-block;}
+
+/* Rule for the radio buttons container */
+#docContainer .fb-radio { padding: 0 0 0 2px; color: #444; }
+
+/* Rule for the radio buttons inputs */
+#docContainer .fb-radio input { padding: 0 0 0 2px; display:inline-block;}
+
+/* Rule for the labels of checkboxes and radios */
+#docContainer .fb-fieldlabel {
+   display: inline;
+   margin-top: 10px;
+   margin-left: 5px;
+   font-size: 0.9em; 
+}
+
+#docContainer .fb-radio label, #docContainer .fb-checkbox label {
+  margin-bottom:5px;
+  margin-top: 11px;
+}
+
+/* Rule for the input-boxes container */
+#docContainer .fb-input-box {margin-bottom: 5px;}
+
+/* Rule for the input-boxes */
+#docContainer .fb-input-box input {color: rgb(69,69,69);
+			font: normal 12px Helvetica, Arial, Sans-serif;
+			border: 1px solid rgb(220,223,231);
+			border-top-color: rgb(170,173,178);
+			-webkit-border-radius: 3px;
+			-moz-border-radius: 3px;
+			border-radius: 3px;}
+		
+/* Rule for the dropdown container */
+#docContainer .fb-dropdown {}
+
+/* Rule for the dropdown select */
+#docContainer .fb-dropdown select { padding: 0px; background: white;
+	font: normal 12px Helvetica, Arial, Sans-serif;
+	width:92%;
+	max-width:100%;
+}
+/* Rule for the listbox container */
+#docContainer .fb-listbox {}
+
+/* Rule for the listbox select */
+#docContainer .fb-listbox select {color: rgb(69,69,69);
+			font: normal 12px Helvetica, Arial, Sans-serif;
+			border: 1px solid rgb(220,223,231);
+			border-top-color: rgb(170,173,178);
+			-webkit-border-radius: 3px;
+			-moz-border-radius: 3px;
+			border-radius: 3px;
+padding: 3px;
+}
+
+/* Rule for the listbox select option (selected element) */
+#docContainer .fb-listbox select option { padding: 3px 0px; }
+		
+/* Rule for the file upload container */
+#docContainer .fb-button { margin: 0 0 5px 0;}
+ 
+/* Rule for the file upload input */
+#docContainer .fb-button input { color: #777; font-family: Helvetica, Arial, Sans-serif;}
+
+/* Rule for the date container */
+#docContainer .fb-input-date { margin: 0 0 5px 0; }
+
+/* Rule for the date input */
+#docContainer .fb-input-date input {color: rgb(69,69,69);
+			font: normal 12px Helvetica, Arial, Sans-serif;
+			border: 1px solid rgb(220,223,231);
+			border-top-color: rgb(170,173,178);
+			-webkit-border-radius: 3px;
+			-moz-border-radius: 3px;
+			border-radius: 3px;
+}
+
+
+/* Rule for the phone input */
+#docContainer .fb-phone input {color: rgb(69,69,69);
+			font: normal 12px Helvetica, Arial, Sans-serif;
+			border: 1px solid rgb(220,223,231);
+			border-top-color: rgb(170,173,178);
+			-webkit-border-radius: 3px;
+			-moz-border-radius: 3px;
+			border-radius: 3px;
+}
+
+/* Rule for the regex input */
+#docContainer .fb-regex input {color: rgb(69,69,69);
+			font: normal 12px Helvetica, Arial, Sans-serif;
+			border: 1px solid rgb(220,223,231);
+			border-top-color: rgb(170,173,178);
+			-webkit-border-radius: 3px;
+			-moz-border-radius: 3px;
+			border-radius: 3px;
+}
+
+/* Rule for the section break container */
+#docContainer .fb-sectionbreak {padding-right: 51px;}
+
+/* Rule for the section break hr */
+#docContainer .fb-sectionbreak hr { margin: 0 auto; padding: 0 auto; border:none; border-top: 1px solid #9e9e9e; width: 100%;}
+
+/* Rule for the labels */
+
+ #docContainer .fb-grouplabel {
+ margin-bottom: 5px;
+ margin-top: 5px;
+ padding-right:5px;
+ clear:both;
+
+}
+
+#docContainer .fb-grouplabel label{
+	font-weight: bold;
+	margin-bottom: 0px;
+	padding-top: 4px;
+}
+
+
+
+/* Rule for labels aligned right */
+.fb-rightlabel .fb-grouplabel {
+	float:left;
+	text-align:right;
+	width:30%;
+}
+.fb-rightlabel .fb-input-box,
+.fb-rightlabel .fb-dropdown,
+.fb-rightlabel .fb-listbox,
+.fb-rightlabel .fb-button,
+.fb-rightlabel .fb-textarea,
+.fb-rightlabel .fb-radio,
+.fb-rightlabel .fb-input-number,
+.fb-rightlabel .fb-checkbox,
+.fb-rightlabel .fb-input-date,
+.fb-rightlabel .fb-phone,
+.fb-rightlabel .fb-regex,
+.fb-rightlabel  label.error,
+.fb-rightlabel .fb-hint {
+	float:left;
+	width:65%;
+}
+
+/* General rule for hints */
+ #docContainer.fb-rightlabel .fb-hint { margin-left: 30%; }
+
+ /* Specific rule for input elements */
+ #docContainer.fb-rightlabel .fb-input-box .fb-hint,
+ #docContainer.fb-rightlabel .fb-button .fb-hint,
+ #docContainer.fb-rightlabel .fb-textarea .fb-hint,
+ #docContainer.fb-rightlabel .fb-input-number .fb-hint,
+ #docContainer.fb-rightlabel .fb-input-date .fb-hint,
+ #docContainer.fb-rightlabel .fb-phone .fb-hint,
+ #docContainer.fb-rightlabel .fb-regex .fb-hint{
+        margin-left: 0px;
+        width:100%;
+
+ }
+
+
+
+/* Rule for labels aligned on the left */
+.fb-leftlabel .fb-grouplabel {
+	float:left;
+	width:30%;
+	text-align:left;
+}
+.fb-leftlabel .fb-input-box,
+.fb-leftlabel .fb-dropdown,
+.fb-leftlabel .fb-listbox,
+.fb-leftlabel .fb-button,
+.fb-leftlabel .fb-textarea,
+.fb-leftlabel .fb-input-number,
+.fb-leftlabel .fb-radio,
+.fb-leftlabel .fb-checkbox,
+.fb-leftlabel .fb-input-date,
+.fb-leftlabel .fb-phone,
+.fb-leftlabel .fb-regex,
+.fb-leftlabel  label.error,
+.fb-leftlabel .fb-hint {
+	float:left;
+	width:60%;
+}
+
+/* General rule for hints */
+ #docContainer.fb-leftlabel .fb-hint { margin-left: 30%; }
+
+ /* Specific rule for input elements */
+ #docContainer.fb-leftlabel .fb-input-box .fb-hint,
+ #docContainer.fb-leftlabel .fb-button .fb-hint,
+ #docContainer.fb-leftlabel .fb-textarea .fb-hint,
+ #docContainer.fb-leftlabel .fb-input-number .fb-hint,
+ #docContainer.fb-leftlabel .fb-input-date .fb-hint,
+ #docContainer.fb-leftlabel .fb-phone .fb-hint,
+ #docContainer.fb-leftlabel .fb-regex .fb-hint {
+        margin-left: 0px;
+        width:100%;
+
+ }
+
+
+
+/* Rule for labels aligned on top */
+.fb-toplabel .fb-grouplabel {width: 95%; }
+.fb-toplabel .fb-input-box,
+.fb-toplabel .fb-dropdown,
+.fb-toplabel .fb-listbox,
+.fb-toplabel .fb-button,
+.fb-toplabel .fb-input-number,
+.fb-toplabel .fb-textarea,
+.fb-toplabel .fb-radio,
+.fb-toplabel .fb-checkbox,
+.fb-toplabel .fb-input-date,
+.fb-toplabel .fb-phone,
+.fb-toplabel .fb-regex,
+.fb-toplabel .fb-hint,
+.fb-toplabel  label.error {
+	margin: 9px 0 0 0;
+	float:none;
+	width:95%;
+}
+#docContainer.fb-toplabel .fb-hint {margin-left: 2px}
+
+
+/* Rules checkboxes/radios columns */
+.fb-one-column .fb-radio label, .fb-one-column .fb-checkbox label {
+	display:inline-block;
+	width:100%;
+}
+.fb-two-column .fb-radio label, .fb-two-column .fb-checkbox label {
+	display:inline-block;
+	float:left;
+	width:47%;
+} 
+.fb-three-column .fb-radio label, .fb-three-column .fb-checkbox label {
+	display:inline;
+	float:left;
+	width:33%;
+}
+ 
+
+
+/*  General rules for submit button, static text, and header alignments */
+#docContainer .fb-item-alignment-left {
+   padding-left:0px;
+   text-align:left;
+}
+#docContainer .fb-item-alignment-center {
+   text-align:center;
+}
+#docContainer .fb-item-alignment-right {
+	padding-right:0px;
+	text-align:right;
+}
+
+/*  Rules for container header alignments */
+#docContainer .fb-header.fb-item-alignment-left {}
+#docContainer .fb-header.fb-item-alignment-center {}
+#docContainer .fb-header.fb-item-alignment-right {}
+
+/*  Rules for element header alignments */
+#docContainer .fb-header.fb-item-alignment-left h2 {}
+#docContainer .fb-header.fb-item-alignment-center h2 {}
+#docContainer .fb-header.fb-item-alignment-right h2 {}
+
+/*  Rules for container static text alignments */
+#docContainer .fb-static-text.fb-item-alignment-left {}
+#docContainer .fb-static-text.fb-item-alignment-center {}
+#docContainer .fb-static-text.fb-item-alignment-right {}
+
+/*  Rules for element static text alignments */
+#docContainer .fb-static-text.fb-item-alignment-left p {}
+#docContainer .fb-static-text.fb-item-alignment-center p {}
+#docContainer .fb-static-text.fb-item-alignment-right p {}
+
+
+/*  Rules for container submit alignments */
+#docContainer #fb-submit-button-div.fb-item-alignment-left {}
+#docContainer #fb-submit-button-div.fb-item-alignment-center {}
+#docContainer #fb-submit-button-div.fb-item-alignment-right {}
+
+/*  Rules for element submit alignments */
+#docContainer #fb-submit-button-div.fb-item-alignment-left input {}
+#docContainer #fb-submit-button-div.fb-item-alignment-center input {}
+#docContainer #fb-submit-button-div.fb-item-alignment-right input {}
+
+/* Rules for Validation styles */
+#docContainer label.error {
+    background-color:transparent;
+	font-weight: normal;
+    padding: 5px;
+	display:block;
+	clear:both;
+	color: #BF0000;
+	font: italic 12px Helvetica,sans-serif;
+	margin: 1px 0 0 0;
+}
+#docContainer input[type=text].error, #docContainer input[type=password].error, 
+#docContainer input[type=email].error, #docContainer input[type=number].error,
+#docContainer input[type=date].error, #docContainer input[type=url].error,
+#docContainer input[type=tel].error, #docContainer textarea.error, 
+#docContainer select.error {
+}
+
+.couponcode:hover .coupontooltip { /* NEW */
+    display: block;
+}
+
+
+.coupontooltip {
+    display: none;  /* NEW */
+    background-color:#EAECF0;
+	position: absolute;
+}
+
+.couponcode {
+}
+

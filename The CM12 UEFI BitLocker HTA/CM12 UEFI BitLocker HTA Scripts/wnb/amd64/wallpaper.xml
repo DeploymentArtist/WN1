@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<migration urlid="http://www.microsoft.com/migration/1.0/migxmlext/wallpaper">
+  <!-- This component migrates wallpaper settings -->
+  <component type="System" context="User">
+    <displayName>Wallpapers</displayName>
+    <role role="Settings">
+      <rules>
+        <include>
+          <objectSet>
+            <pattern type="Registry">HKCU\Control Panel\Desktop [Pattern]</pattern>
+            <pattern type="Registry">HKCU\Control Panel\Desktop [PatternUpgrade]</pattern>
+            <pattern type="Registry">HKCU\Control Panel\Desktop [TileWallpaper]</pattern>
+            <pattern type="Registry">HKCU\Control Panel\Desktop [WallPaper]</pattern>
+            <pattern type="Registry">HKCU\Control Panel\Desktop [WallpaperStyle]</pattern>
+            <pattern type="Registry">HKCU\Software\Microsoft\Windows\CurrentVersion\Themes [SetupVersion]</pattern>
+            <pattern type="Registry">HKCU\Software\Microsoft\Internet Explorer\Desktop\General [BackupWallpaper]</pattern>
+            <pattern type="Registry">HKCU\Software\Microsoft\Internet Explorer\Desktop\General [TileWallpaper]</pattern>
+            <pattern type="Registry">HKCU\Software\Microsoft\Internet Explorer\Desktop\General [Wallpaper]</pattern>
+            <pattern type="Registry">HKCU\Software\Microsoft\Internet Explorer\Desktop\General [WallpaperFileTime]</pattern>
+            <pattern type="Registry">HKCU\Software\Microsoft\Internet Explorer\Desktop\General [WallpaperLocalFileTime]</pattern>
+            <pattern type="Registry">HKCU\Software\Microsoft\Internet Explorer\Desktop\General [WallpaperStyle]</pattern>
+            <content filter="MigXmlHelper.ExtractSingleFile(NULL, NULL)">
+              <objectSet>
+                <pattern type="Registry">HKCU\Control Panel\Desktop [WallPaper]</pattern>
+                <pattern type="Registry">HKCU\Software\Microsoft\Internet Explorer\Desktop\General [BackupWallpaper]</pattern>
+                <pattern type="Registry">HKCU\Software\Microsoft\Internet Explorer\Desktop\General [Wallpaper]</pattern>
+              </objectSet>
+            </content>
+          </objectSet>
+        </include>
+      </rules>
+    </role>
+  </component>
+
+  <!-- This component migrates wallpaper files -->
+  <component type="Documents" context="System">
+    <displayName>Move JPG and BMP</displayName>
+    <role role="Data">
+      <rules>
+        <include>
+          <objectSet>
+            <pattern type="File"> %windir% [*.bmp]</pattern>
+            <pattern type="File"> %windir%\web\wallpaper [*.jpg]</pattern>
+            <pattern type="File"> %windir%\web\wallpaper [*.bmp]</pattern>
+          </objectSet>
+        </include>
+      </rules>
+    </role>
+  </component>
+</migration>

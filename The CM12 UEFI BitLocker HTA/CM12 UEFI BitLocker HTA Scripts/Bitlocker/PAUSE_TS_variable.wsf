@@ -1,0 +1,16 @@
+<job id="setEnv">
+  <script language="VBScript" src="..\ZTIUtility.vbs"/>
+  <script language="VBScript">
+
+Dim oTSProgressUI
+set oTSProgressUI = CreateObject("Microsoft.SMS.TSProgressUI")
+oTSProgressUI.CloseProgressDialog()
+
+
+  	On error resume next
+	
+	MsgBox "Pausing TS.",0, "PAUSE"
+
+
+  </script>
+</job>

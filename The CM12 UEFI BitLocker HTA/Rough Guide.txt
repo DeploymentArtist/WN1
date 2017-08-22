@@ -1,0 +1,33 @@
+Rough guide. More detailed guide coming in Part 2.
+(c) windows-noob.com 2015/1/20
+
+Add HTA Support and Powershell support to the boot image;
+Adjust the CustomSettings.ini file changing the webservice URL to point to your web service server, and add the file to the ROOT of the MDT package;
+
+Adjust the MDT Packages in the task sequence;
+Adjust the Script Packages in the task sequence;
+Adjust the HTA Package in the task sequence;
+Adjust the account in the step Connect to Network Folder;
+Adjust or create the share named Hidden$ in the step Connect to Network Folder;
+The step Assign a drive letter to Windows RE Tools contains a script ReassignOSDiskandAssignWindowsReTools.vbs which is available in the following folder: The CM12 UEFI BitLocker HTA\CM12 UEFI BitLocker HTA Scripts\Bitlocker
+Adjust the server name in the step Set BackupServer;
+Adjust the backup share in the step Set BackupShare;
+Adjust the USMT share in the step Set USMTStoreShare;
+Adjust the account in the step Connect to Network Folder for USMT state store;
+Adjust the account in the step Connect to Network Folder for storing Full backups;
+Adjust the DNS domain in the step Set DNSDOMAIN;
+Adjust the Machine OU in the step Set machineObjectOU;
+Adjust the MBAM Server in the step Set MBAMServer;
+Adjust the MBAM Password in the step Set MBAMpassword_1;
+Adjust the account in the step Connect to Network Folder;
+Adjust the account in the step Connect to Network Folder;
+Adjust the unattended package in the step Apply Operating System Image;
+Adjust the licensing information in the step Apply Windows Settings;
+Adjust the network settings in the step Apply Network Settings;
+Adjust the package in the step Install Multi Language Packs Offline;
+Adjust the client package in the step Setup Windows and ConfigMgr;
+Adjust the USMT package in the step Restore User State;
+Adjust the account and share in the step Connect to Network Folder;
+Adjust the package in the step Install Microsoft MBAM Client X64 En;
+Adjust the package in the step Install Microsoft MBAM Client X86 En;
+Adjust the administrator in the step Add Local Administrator (and the similar named steps);

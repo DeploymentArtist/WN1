@@ -1,0 +1,48 @@
+<job id="GetBitLockerKey">
+  <script language="VBScript" src="..\ZTIUtility.vbs"/>
+  <script language="VBScript" src="..\ZTIDataAccess.vbs"/>
+  <script language="VBScript">
+  
+		Dim ConString
+		Dim RsTemp
+		Dim SerialNumber
+		Dim MachineID
+		Dim RecoveryKey
+		Dim oEnv
+		
+		Set oEnv=CreateObject("Microsoft.SMS.TSEnvironment")
+		
+		'PARAMETERS
+		ConString="Provider=SQLOLEDB.1;Data Source=MBAM.server2008.lab.local,1433;Initial Catalog=MBAM Recovery and Hardware;User ID=OSD;Password=Password123"
+		
+		SerialNumber=oEnv("SerialNumber")
+		
+		'MAIN
+		SQL="SELECT ID FROM RecoveryAndHardwareCore.Machines WHERE SerialNumber='" &SerialNumber &"'"
+		Set RsTemp=GetRs(SQL)
+		MachineID=RsTemp("Id")
+		
+		
+		SQL="SELECT VolumeId FROM RecoveryAndHardwareCore.Machines_Volumes mv JOIN RecoveryAndHardwareCore.Volumes v ON mv.VolumeID=v.ID WHERE MachineID=" &MachineID &" AND VolumeTypeID=0"
+		Set RsTemp=GetRs(SQL)
+		VolumeID=RsTemp("VolumeID")
+		
+		SQL="SELECT RecoveryKey FROM RecoveryAndHardwareCore.Keys WHERE VolumeID=" &VolumeID 
+		Set RsTemp=GetRs(SQL)
+		RecoveryKey=RsTemp("RecoveryKey")
+		
+		oEnv("RecoveryKey")=RecoveryKey
+		
+		Function GetRs(SQL)
+			Dim Con
+			Dim Rs
+			
+			Set Con=CreateObject("ADODB.Connection")
+			Con.Open(ConString)
+			
+			Set Rs=Con.Execute(SQL)
+			
+			GetRs=Rs
+		End Function
+	</script>
+</job>

@@ -1,0 +1,507 @@
+<!DOCTYPE HTML>
+<! Niall Brady (c) windows-noob.com 2015/1/18>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script type="text/javascript" src="common/js/validation.js" id="form_init_script" data-name=""></script>
+		<link rel="stylesheet" type="text/css" href="theme/UEFI/uefi.css" id="theme" />
+			<title>
+				The CM12 UEFI BitLocker HTA
+			</title>
+
+
+<HTA:Application
+ ID = "The CM12 UEFI BitLocker HTA"
+ ApplicationName = "The CM12 UEFI BitLocker HTA"
+ Border = "thin"
+ BorderStyle = "normal"
+ Caption = "no"
+ ContextMenu="no"
+ Icon = ""
+ InnerBorder="no"
+ MaximizeButton = "no"
+ MinimizeButton = "yes"
+ windowState="maximize" Navigable="yes"
+ Scroll="no"
+ SrollFlat="no"
+ Selection="yes"
+ ShowInTaskBar = "yes"
+ SingleInstance = "yes"
+ SysMenu = "yes"
+ Version = "1.0"
+>
+
+
+<script type="text/javascript">
+
+var panels = new Array("","panel1","panel2","panel3","panel4","panel5");
+function panel(tab) {
+    for (i=1; i<panels.length; i++) {
+        if (i == tab) {
+            document.getElementById("tab"+i).className = "tabs tabs1";
+            document.getElementById("panel"+i).style.display = "block";
+        } else {
+            document.getElementById("tab"+i).className = "tabs tabs0";
+            document.getElementById("panel"+i).style.display = "none";
+        }
+    }
+	
+	//alert ('test2');
+}
+
+
+</script>
+</head>
+
+<body onload="OnLoad();">  
+<form id="docContainer" enctype="multipart/form-data" method="POST" action="" class="fb-toplabel selected-object fb-100-item-column" style="background-color: rgb(216,221,232); " data-form="preview;" >
+	<div id="fb-form-header1" class="fb-form-header" style="min-height: 75px; background-color: black;">
+		<img alt="Logo" title="logo" id="fb-logo1" class="fb-logo" src="theme/uefi/images/wnb logo3.png" style="display: inline; width: 599px; height: 109px; "/></img>
+	</div>		
+	<table align="center" cellspacing="10" >	
+		<tr valign="top">
+			<td>
+				&nbsp; <span class="tabs tabs1" id="tab1" onclick="panel(1)">&nbsp;&nbsp;About&nbsp;&nbsp;</span>
+				&nbsp; <span class="tabs tabs0" id="tab2" onclick="panel(2)">&nbsp;&nbsp;Backup&nbsp;&nbsp;</span>
+				&nbsp; <span class="tabs tabs0" id="tab3" onclick="panel(3)">&nbsp;Reinstall&nbsp;</span>
+				&nbsp; <span class="tabs tabs0" id="tab4" onclick="panel(4)">&nbsp;New Computer&nbsp;</span>
+				&nbsp; <span class="tabs tabs0" id="tab5" onclick="panel(5)">&nbsp;Tools&nbsp;</span>		
+				<div class="panel" id="panel1" style="display:block">
+					<table>
+						<tr>
+							<td>
+								The CM12 UEFI BitLocker HTA is a frontend for Configuration Manager 2012 R2
+								which allows you to use three common OSD scenarios for UEFI (and Legacy) based 
+								hardware, namely Backup, Reinstall and New Computer.
+								<br><br>
+								To get started, fill in the details below as appropriate then use the tabs above to 
+								browse through those scenarios, then make any additional choices before
+								clicking on Proceed in the lower right corner.
+								<br><br>	
+							</td>
+						</tr>
+					</table>
+					<table width=100% align="center">
+						<div id="item1" class="fb-item fb-50-item-column">
+							<div class="fb-grouplabel">
+								<label id="item1_label_0" style="display: inline; ">
+									Computer name
+								</label>
+							</div>
+							<div class="fb-input-box">
+								<input type="text" id="item1_text_1" maxlength="20" name="item1_text_1" onkeyup="inpBoxComputer_OnKeyUp('item1_text_1');"/>
+							</div>
+							<div id="txtComputerInfoNew" name="txtComputerInfoNew">
+								Enter a computer name	
+							</div>
+						</div>
+						<div id="item2" class="fb-item fb-50-item-column" style="opacity: 1; ">
+							<div class="fb-grouplabel">
+								<label id="item2_label_0" style="display: inline; ">
+									User name
+								</label>
+							</div>
+							<div class="fb-input-box">
+								<input type="text" id="item2_text_1" maxlength="20" name="item2_text_1" onkeyup="inpBoxUser_OnKeyUp('item2_text_1');"/>
+							</div>
+							<div id="txtUserInfoNew" name="txtUserInfoNew">
+								Enter a user name, EG: johndoe
+							</div>
+						</div>
+					</table>
+					
+				</div>
+				<div class="panel" id="panel2" style="display:none">
+					<table border=0 cellspacing="0" cellpadding="0" width=100% >
+						<div class="fb-grouplabel">
+							<label id="item1_label_6" style="display: inline; ">
+								Error checking Options
+							</label>
+						</div>
+						<tr>
+							<td width=33% colspan=3 background="theme/uefi/images/computer_association-notselected.png">
+								Quick CHKDSK
+							</td>
+							<td width=33% colspan=3>
+								<input type="checkbox" name="CHKDSK" value="checkbox" id="ckCHKDSK" />
+							</td>
+							<td width=33%>&nbsp;
+							</td>
+						</tr>
+						<tr>
+							<td width=33% colspan=3>
+								Extensive CHKDSK
+							</td>
+							<td width=33% colspan=3>
+								<input type="checkbox" name="eckCHKDSK" value="checkbox" id="eckCHKDSK" />
+							</td>
+							<td width=33%>&nbsp;
+							</td>
+						</tr>
+						</table>
+						<table border=0 width=100%>
+						<br>
+						<div class="fb-grouplabel">
+							<label id="item1_label_6" style="display: inline; ">
+								Full WIM Backup Options
+							</label>
+						</div>
+						<tr>
+							<td width=33% colspan=3>
+								Backup (Local)
+							</td>
+							<td width=33% colspan=3>
+								<input type="checkbox" name="ckBoxFullBackup" value="checkbox" id="ckBoxFullBackup" />
+							</td>
+							<td width=33%>&nbsp;
+							</td>
+						</tr>
+						<tr>
+							<td width=33% colspan=3>
+								Backup (Network)
+							</td>
+							<td width=33% colspan=3>
+								<input type="checkbox" name="ckBoxFullBackupNetwork" value="checkbox" id="ckBoxFullBackupNetwork" />
+							</td>
+							<td width=33%>&nbsp;
+							</td>
+						</tr>
+						</table>
+						<table border=0 width=100%>
+						<br>
+						<div class="fb-grouplabel">
+							<label id="item1_label_6" style="display: inline; ">
+								Scanstate Options
+							</label>
+						</div>
+						<tr>
+							<td width=33% colspan=3>
+								xcopy to Network
+							</td>
+							<td width=33% colspan=3>
+								<input type="checkbox" name="ckBoxDoOffline" value="checkbox" id="ckBoxDoOffline" />
+							</td>
+							<td width=33%>&nbsp;
+							</td>
+						</tr>
+					</table>
+					<table border=0 width=100%>
+					<div id="footer">
+								<div id="fb-submit-button-div" class="fb-item-alignment-right">
+								<input type="submit" class="fb-button-special" id="fb-submit-button" style="" value="Proceed" onclick="Backup()"/>
+								</div>
+					</div>	
+				</table>					
+				</div>
+				<div class="panel" id="panel3" style="display:none">
+					<table border=0 width=100%>
+						<tr>
+							<td width=33%>
+								<div id="item3" class="fb-item fb-100-item-column">
+									<div class="fb-grouplabel">
+										<label id="item1_label_3" style="display: inline; ">
+										Regional Options
+										</label>
+									</div>
+									<div class="fb-dropdown">
+										<select name="RefreshregionDropDown" id="RefreshregionDropDown" >
+											<option value="None">None</option>
+											<option value="Multi">Multi</option>
+											<option value="En-US">En-US</option>
+											<option value="sv-SE">sv-SE</option>
+											<option value="da-DK">da-DK</option>
+											<option value="nb-NO">nb-NO</option>
+											<option value="fi-FI">fi-FI</option>
+											<option value="de-CH">de-CH</option>
+										</select>
+									</div>
+								</div>
+							</td>
+							<td width=33%>
+								<div id="item4" class="fb-item fb-100-item-column">
+									<div class="fb-grouplabel">
+										  <label id="item1_label_10" style="display: inline; ">
+											Language Options
+										  </label>
+									</div>
+									<div class="fb-dropdown">
+										<select name="RefreshlanguageDropDown" id="RefreshlanguageDropDown">
+												<option value="None">None</option>
+												<option value="Multi">Multi</option>
+												<option value="English">English</option>
+												<option value="Swedish">Swedish</option>
+												<option value="Danish">Danish</option>
+												<option value="Norwegian">Norwegian</option>
+												<option value="Finnish">Finnish</option>
+												<option value="German">German</option>
+										</select>
+									</div>
+								</div>
+							</td>		
+						
+							<td width=33%>
+							&nbsp;
+							</td>
+					</table>
+					<table border=0 width=100%>
+						<div class="fb-grouplabel">
+							<label id="item1_label_6" style="display: inline; ">
+								Error checking Options
+							</label>
+						</div>
+						<tr>
+							<td width=33% colspan=3>
+								Quick CHKDSK
+							</td>
+							<td width=33% colspan=3>
+								<input type="checkbox" name="RefreshckCHKDSK" value="checkbox" id="RefreshckCHKDSK" />
+							</td>
+							<td width=33%>&nbsp;
+							</td>
+						</tr>
+						<tr>
+							<td width=33% colspan=3>
+								Extensive CHKDSK
+							</td>
+							<td width=33% colspan=3>
+								<input type="checkbox" name="RefresheckCHKDSK" value="checkbox" id="RefresheckCHKDSK" />
+							</td>
+							<td width=33%>&nbsp;
+							</td>
+						</tr>
+					</table>
+					<table border=0 width=100%>
+						<br>
+						<div class="fb-grouplabel">
+							<label id="item1_label_6" style="display: inline; ">
+								Additional Options
+							</label>
+						</div>
+						<tr>
+							<td width=33% colspan=3>
+								Enable SCEP
+							</td>
+							<td width=33% colspan=3>
+								<input type="checkbox" name="SCEPckBoxRefresh" value="checkbox" id="SCEPckBoxRefresh" />
+							</td>
+							<td width=33%>&nbsp;
+							</td>
+						</tr>
+						<tr>
+							<td width=33% colspan=3>
+								Enable BitLocker
+							</td>
+							<td width=33% colspan=3>
+								<input type="checkbox" name="RefreshckBoxEnableBitLocker" value="checkbox" CHECKED id="RefreshckBoxEnableBitLocker" />
+							</td>
+							<td width=33%>&nbsp;
+							</td>
+						</tr>
+					</table>
+					<table border=0 width=100%>
+					
+						<div id="footer">
+							<div id="fb-submit-button-div" class="fb-item-alignment-right">
+								<input type="submit" class="fb-button-special" id="fb-submit-button" style="" value="Proceed" onclick="Reinstall()"/>
+							</div>
+						</div>	
+					</table>					
+				</div>
+				<div class="panel" id="panel4" style="display:none">
+					<table border=0 width=100%>
+						<tr>
+							<td width=33%>
+								<div id="item3" class="fb-item fb-100-item-column">
+									<div class="fb-grouplabel">
+										<label id="item1_label_3" style="display: inline; ">
+										Regional Options
+										</label>
+									</div>
+									<div class="fb-dropdown">
+										<select name="regionDropDown" id="regionDropDown" >
+											<option value="None">None</option>
+											<option value="Multi">Multi</option>
+											<option value="En-US">En-US</option>
+											<option value="sv-SE">sv-SE</option>
+											<option value="da-DK">da-DK</option>
+											<option value="nb-NO">nb-NO</option>
+											<option value="fi-FI">fi-FI</option>
+											<option value="de-CH">de-CH</option>
+										</select>
+									</div>
+								</div>
+							</td>
+							<td width=33%>
+								<div id="item4" class="fb-item fb-100-item-column">
+									<div class="fb-grouplabel">
+										  <label id="item1_label_4" style="display: inline; ">
+											Language Options
+										  </label>
+									</div>
+									<div class="fb-dropdown">
+										<select name="languageDropDown" id="languageDropDown">
+												<option value="None">None</option>
+												<option value="Multi">Multi</option>
+												<option value="English">English</option>
+												<option value="Swedish">Swedish</option>
+												<option value="Danish">Danish</option>
+												<option value="Norwegian">Norwegian</option>
+												<option value="Finnish">Finnish</option>
+												<option value="German">German</option>
+										</select>
+									</div>
+								</div>
+							</td>		
+						
+							<td width=33%>
+								<div id="item5" class="fb-item fb-100-item-column">
+									<div class="fb-grouplabel">
+										  <label id="item1_label_6" style="display: inline; ">
+											State Restore Options
+										  </label>
+									</div>
+									<div class="fb-dropdown" id="divUSMTDropDown">
+										<select name="shareDropDown" id="shareDropDown">
+											<option>No Restore</option>
+										</select>
+									</div>
+								</div>
+							</td>
+						</tr>
+					</table>
+					<table border=0 width=100%>
+						<br>
+						<div class="fb-grouplabel">
+							<label id="item1_label_7" style="display: inline; ">
+								Additional Options
+							</label>
+						</div>
+						<tr>
+							<td width=33%>
+								Enable SCEP
+							</td>
+							<td>
+								<input type="checkbox" name="SCEPckBoxNew" value="checkbox" id="SCEPckBoxNew" />
+							</td>
+							<td width=33%>&nbsp;
+							</td>
+						</tr>
+					</table>
+					<table border=0 width=100%>
+						<div class="fb-grouplabel">
+							<label id="item1_label_8" style="display: inline; ">
+								BitLocker Options
+							</label>
+						</div>
+						<tr>
+							<td width=33% colspan=3>
+							Pre-Provision BitLocker
+							</td>
+							<td>
+							<input type="checkbox" name="ckBoxPreProvBitLocker" value="checkbox" id="ckBoxPreProvBitLocker" CHECKED/>
+							</td>
+							<td>&nbsp;
+							</td>
+						</tr>
+						<tr>
+							<td width=33% colspan=3>
+								Enable BitLocker
+							</td>
+							<td width=33%>
+								<input type="checkbox" name="NewComputerckBoxEnableBitLocker" value="checkbox" id="NewComputerckBoxEnableBitLocker" CHECKED/>
+							</td>
+							<td width=33%>&nbsp;
+							</td>
+						</tr>
+						<tr>
+							<td width=33% colspan=3>
+								Enc. Algorithm
+							</td>
+							<td>
+								<input name="radio1" id="item1_0_radio" type="radio" value="AES128" onclick="radioBtnChanged(); "CHECKED/>AES 128
+							&nbsp;&nbsp;
+								<input name="radio1" id="item1_1_radio" type="radio" value="AES256" onclick="radioBtnChanged();"/>AES 256
+							</td>
+						</tr>
+					</table>
+					<table border=0 width=100%>	
+						<div id="footer">
+									<div id="fb-submit-button-div" class="fb-item-alignment-right">
+									<input type="submit" class="fb-button-special" id="fb-submit-button" style="" value="Proceed" onclick="NewComputer()"/>
+									</div>
+						</div>				
+					</table>
+				</div>
+				<div class="panel" id="panel5" style="display:none">
+					<table width=100%>
+					
+							
+						<td width=35%>
+								<div id="item9" class="fb-item fb-75-item-column">
+									<div class="fb-grouplabel">
+										  <label id="computerAssociationDiv" style="display: inline; ">
+											Search for Computer
+										  </label>
+									</div>
+									<div  id="divjjUSMTDropDown">
+										<input style="height:6px;font-size:10pt;" type="text" maxlength="20" name="searchstring_association" id="searchstring_association" onkeyup="inpBoxSearch_OnKeyUp('searchstring_association')" />
+									</div>
+								</div>
+						</td>
+						<td width=30%>
+							<div id="computerAssociationDiv2" class="fb-item fb-75-item-column">
+								<div class="fb-grouplabel">
+									<label id="computerAssociationDiv" style="display: inline; ">
+										Select destination
+									</label>
+								</div>
+							<div>
+								<select id="destinationComputerList">
+									<option value=""> <------- </option>
+								</select>
+								
+							</div>
+						</td>
+						<td width=30%>
+						<div class="fb-grouplabel">
+									<label id="computerAssociationDiv" style="display: inline; ">
+										Associate Computer
+									</label>
+								</div>
+								<div>
+								<button type="button" onclick="makeAssociation();">Make Association</button>
+								</div>
+							</td>
+					</table>
+					<table width=50% >
+						<div>
+							<div class="fb-grouplabel">
+								<label id="computerAssociationDiv" style="display: inline; ">
+									Additional tools
+								</label>
+							</div>
+							<tr>
+								<td align=center width="15%"><img src="theme/uefi/images/c_prompt_button.png" height="50" width="50" onclick="commandPrompt()" class="showHand" alt="Open command prompt" />
+									<br>CMD Prompt<br>	
+								</td>
+								<td align=center width=15%"><img src="theme/uefi/images/cmtrace_ico.png" height="50" width="50" onclick="cmtrace()" class="showHand" alt="Show SMSTS.LOG in CMTrace" />
+									<br>CMTrace<br>
+								</td>
+							</tr>
+							<tr>
+								<td align=center width="15%"><img src="theme/uefi/images/report.png" height="50" width="50" onclick="openPopup()" class="showHand" alt="Show computer information" />
+								<br>Deployment Info<br>
+								</td>
+								<td align=center width="15%"><img src="theme/uefi/images/red_power_off_button.png" height="50" width="50" onclick="Reboot()" alt="Reboot the computer" class="showHand" />
+									<br>Restart<br>
+								</td>
+							</tr>
+						</div>
+					</table>
+				</div>
+			</td>
+		</tr>
+	</table>
+</form>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+    html, body {
+        overflow: hidden;
+        margin: 0px;
+        padding: 0px;
+        width: 100%;
+        height: 100%;
+        min-height:0;
+    }
+    iframe {
+        width: 100%;
+        height: 100%;
+        border: 0px;
+        position:absolute;
+        top:0;
+        left:0;
+        min-height:0;
+    }
+</style>
+
+<script type="text/javascript" src="../libs_js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="../libs_js/json2.js"></script>
+<script type="text/javascript" src="../libs_js/easyXDM/easyXDM.min.js"></script>
+<script type="text/javascript" src="../js/crossdomain.js"></script>
+</head>
+<body>
+
+<script>
+
+// Initializes the cross domain communication
+var pSockets;
+var iframe;
+
+// Initializes the socket connection for the form
+var socket = new easyXDM.Rpc( {
+	    onReady: function(){
+		    iframe = document.createElement("iframe");
+	        iframe.frameBorder = 0;
+		    iframe.allowTransparency = true;
+	        document.body.appendChild(iframe);
+		    iframe.src = decodeURIComponent( easyXDM.query.url );
+		    iframe.style.minHeight = 0;
+	    },
+        swf:"../libs_js/easyXDM/easyXDM.swf"
+    },
+    {
+        local: {
+            get_height: function(){
+                return pSockets.get_height();
+	        }
+	    },
+	    remote:{
+	        refresh_height:{},
+	        get_location:{}
+	    }
+	});
+
+$(document).ready( function(){
+    pSockets = new CrossDomain( $, socket );
+} );
+
+</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FirstExperience>
+  <oobe>
+    <defaults>
+      <location>244</location>
+      <locale>1033</locale>
+      <keyboard>0409:00000409</keyboard>
+      <timezone>Pacific Standard Time</timezone>
+    </defaults>
+    <hidSetup>
+      <title>Pen Setup</title>
+      <accessoryImagePath>C:\Windows\System32\oobe\info\Default\1033\PenPairing_en-US.png</accessoryImagePath>
+      <accessoryErrorImagePath>C:\Windows\System32\oobe\info\Default\1033\PenError_en-US.png</accessoryErrorImagePath>
+      <accessoryText>Insert the battery, then press and hold the top button until the light blinks.</accessoryText>
+      <accessoryErrorText>Pairing was not successful. Go to www.surface.com/support.</accessoryErrorText>
+      <accessorySuccessImage>C:\Windows\System32\oobe\info\Default\1033\PenSuccess_en-US.png</accessorySuccessImage>
+      <accessorySuccessText>Pairing was successful!</accessorySuccessText>
+    </hidSetup>
+  </oobe>
+</FirstExperience>
